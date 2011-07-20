@@ -1,5 +1,5 @@
 body{
-background:#cff;
+  background:#cff;
 }
 
 .round{
@@ -8,19 +8,19 @@ background:#cff;
   border-radius: 10px;
 }
 .container{
-border: 1px solid black;
- width: 710px;
-margin:auto;
-background: #cff;
+  border: 1px solid black;
+  width: 710px;
+  margin:auto;
+  background: #cff;
 }
 
 section{
-clear:both;
-background: #fff;
-width: 80%;
-margin:auto;
-margin-top:40px;
-padding: 20px;
+  clear:both;
+  background: #fff;
+  width: 80%;
+  margin:auto;
+  margin-top:40px;
+  padding: 20px;
 }
 
 
@@ -38,27 +38,27 @@ padding: 20px;
 }
 
 a{
-color: #09c;
-text-decoration: none;
+  color: #09c;
+  text-decoration: none;
 }
 
 a:hover{
-color: #069;
-text-decoration: underline;
+  color: #069;
+  text-decoration: underline;
 }
 
 a:visited{
-color:#069;
+  color:#069;
 }
 
 a:active{
-color:green;
+  color:green;
 }
 
 nav{
-float:right;
-white-space:nowrap;
-background: #fff;
+  float:right;
+  white-space:nowrap;
+  background: #fff;
 }
 
 nav ul li {
@@ -71,5 +71,39 @@ nav ul li a {
   padding: 0 5px;
   font-weight: bold;
 }
+.field, .actions{
+  margin-bottom:10px;
+}
 
+.field_with_errors{
+  background-color:red;
+  display: table;
+}
 
+.field_with_errors label{
+  color: white
+}
+
+.field_with_errors input{
+  border: 1px solid red
+}
+#error_explanation{
+  background-color: #f0f0f0;
+  border: 2px solid red;
+  width: 400px;
+}
+
+#error_explanation p {
+  color: #333;
+}
+
+#error_explanation h2{
+  color: white;
+  font-size: 13px;
+  background-color: red;
+}
+
+#error_explanation ul li{
+  font-size: 12px;
+  list-style: square;
+}
