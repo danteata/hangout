@@ -51,6 +51,7 @@ describe UsersController do
   end
 
   describe "POST 'create'" do
+
     describe "failure" do
       before(:each) do
         @attr = {:name =>"", :email=>"", :password=>"", :password_confirmation=>""}
@@ -100,6 +101,11 @@ describe UsersController do
       it "should redirect to the user show page" do
         post :create, :user =>@attr
         response.should redirect_to(user_path(assigns(:user)))
+      end
+
+      it "should sign the user in" do
+        post :create, :user => @attr
+        controller.should be_signed_in
       end
     end
   end
