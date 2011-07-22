@@ -4,4 +4,8 @@ module UsersHelper
                                             :class => 'gravatar',
                                             :gravatar=>options)
   end
+
+  def submit_text 
+    @user.name.nil? ? "Sign up" : "Edit"
+  end
 end
