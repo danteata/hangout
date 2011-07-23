@@ -6,6 +6,7 @@
       <li><%= link_to "Home", root_path %> </li>
       <% if signed_in? -%>
         <%= link_to "Profile", current_user %>
+        <%= link_to "All users", users_path %>
         <%= link_to "Settings", edit_user_path(current_user) %>
       <% end -%>
       <li><%= link_to "Contact", contact_path %> </li>

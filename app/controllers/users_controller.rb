@@ -3,6 +3,12 @@ class UsersController < ApplicationController
   #before_filter :correct_user, :only => [:edit, :update]
 
 
+  def index
+    @title = "All users"
+    #@users = User.all
+    @users = User.all.paginate :page => params[:page], :per_page => 10 #implements pagination with will_paginate gem 
+  end
+
   def new
     @title="Sign Up"
    @user = User.new

@@ -3,10 +3,11 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.8'
 gem 'gravatar_image_tag'
 gem 'formtastic', '~> 1.2.0'
+gem 'will_paginate'
+gem 'sqlite3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -32,4 +33,5 @@ gem 'sqlite3'
    gem 'webrat'
    gem 'spork'
    gem 'factory_girl_rails'
+   gem 'faker'
  end
