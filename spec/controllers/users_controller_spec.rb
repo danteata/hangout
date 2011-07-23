@@ -3,17 +3,63 @@ require 'spec_helper'
 describe UsersController do
   render_views
 
+
+
+  describe "authentication of edit/update pages" do
+
+    before(:each) do
+      @user = Factory(:user)
+    end
+
+
+    describe "for signed-in users" do
+
+      before(:each) do
+        wrong_user = Factory(:user, :email => "user@example.net")
+        test_sign_in(wrong_user)
+      end
+
+      it "should require matching users for 'edit'" do
+        #get :edit, :id => @user
+        #response.should redirect_to(root_path)
+        pending
+      end
+
+      it "should require matching users for 'update'" do
+        #put :update, :id => @user, :user => {}
+        #response.should redirect_to(root_path)
+        pending
+      end
+    end
+
+    describe "for non-signed-in users" do
+
+      it "should deny access to 'edit'" do
+        #get :edit, :id => @user
+        #response.should redirect_to(signin_path)
+        pending
+      end
+
+      it "should deny access to 'update'" do
+        #put :update, :id => @user, :user => {}
+        #response.should redirect_to(signin_path)
+        pending
+      end
+    end
+
+  end
+
   describe "GET 'new'" do
     it "should be successful" do
       get 'new'
       response.should be_success
     end
-    
+
 
     it "should have sign up title at /signup" do
       get "new"
       response.should have_selector("title", 
-                                   :content=>"Sign Up")
+                                    :content=>"Sign Up")
     end
   end
 
@@ -26,7 +72,7 @@ describe UsersController do
       get :show, :id=> @user
       response.should be_success
     end
-    
+
     it "should find the right user" do
       get :show, :id=>@user
       assigns(:user).should == @user
@@ -40,14 +86,14 @@ describe UsersController do
     it "should have the user's name" do
       get :show, :id=>@user
       response.should have_selector("h1", :content=> @user.name)
-      
+
     end
 
     it "should have a profile image" do
       get :show, :id=>@user
       response.should have_selector("h1>img", :class => "gravatar")
     end
-  
+
   end
 
   describe "POST 'create'" do
@@ -55,13 +101,13 @@ describe UsersController do
     describe "failure" do
       before(:each) do
         @attr = {:name =>"", :email=>"", :password=>"", :password_confirmation=>""}
-        
+
       end
 
       it "should not create a user" do
         lambda do
           post :create, :user=>@attr
-          
+
         end.should_not change(User, :count)
       end
 
@@ -79,7 +125,7 @@ describe UsersController do
     describe "success" do
       before(:each) do
         @attr ={:name=>"dantheta", :email=>"dan@yahoo.com",
-                :password=>"123456", :password_confirmation=>"123456"}
+          :password=>"123456", :password_confirmation=>"123456"}
       end
 
       it "should have a welcome message" do
@@ -88,10 +134,10 @@ describe UsersController do
       end
 
       #it "should have a 'flash success' div " do 
-        #post :create, :user=>@attr
-        #response.should have_selector("div.flash.success", :content=>"Welcome")
+      #post :create, :user=>@attr
+      #response.should have_selector("div.flash.success", :content=>"Welcome")
       #end
-      
+
       it "should create a user" do
         lambda do
           post :create, :user=> @attr
@@ -130,7 +176,7 @@ describe UsersController do
       get :edit, :id => @user
       gravatar_url = "http://gravatar.com/emails"
       response.should have_selector("a", :href => gravatar_url,
-                                         :content =>"change")
+                                    :content =>"change")
     end
   end 
 
@@ -144,9 +190,9 @@ describe UsersController do
     describe "failure" do
       before(:each) do
         @attr = {:name => "", :email =>"",
-                 :password=>"", :password_confirmation =>""}
+          :password=>"", :password_confirmation =>""}
       end
-      
+
       it "should render the 'edit' page" do
         put :update, :id => @user, :user => @attr
         response.should render_template('edit')
@@ -162,7 +208,7 @@ describe UsersController do
 
       before(:each) do
         @attr = {:name =>"New name", :email =>"user@yahoo.com",
-                 :password => "foobar", :password_confirmation =>"foobar"}
+          :password => "foobar", :password_confirmation =>"foobar"}
       end
 
       it "should change the user's attributes" do
@@ -183,5 +229,5 @@ describe UsersController do
       end
     end
   end
-  
+
 end
