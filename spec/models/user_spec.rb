@@ -6,14 +6,14 @@ describe User do
   end
 
   it "should successfully create a user given valid attributes" do
-      User.create!(@attr)
+    User.create!(@attr)
   end
 
   it "should not accept blank name strings" do
     no_name_user = User.new(@attr.merge(:name=>""))
     no_name_user.should_not be_valid
   end
-  
+
   it "should not accept blank emails" do
     no_email_user = User.new(@attr.merge(:email=>""))
     no_email_user.should_not be_valid
@@ -28,8 +28,8 @@ describe User do
   it "should have a unique email" do
     User.create!(@attr)
     upcase_email = @attr[:email].upcase
-     upcase_email_user = User.new(@attr.merge(:email =>upcase_email))
-     upcase_email_user.should_not be_valid
+    upcase_email_user = User.new(@attr.merge(:email =>upcase_email))
+    upcase_email_user.should_not be_valid
   end
 
   describe "Password Validations" do
@@ -60,7 +60,7 @@ describe User do
     before (:each) do
       @user = User.create!(@attr)
     end
-    
+
     it "should respond to encrypted password attribute" do
       @user.should respond_to :encrypted_password
     end
@@ -69,7 +69,7 @@ describe User do
       @user.encrypted_password.should_not be_blank
     end
 
-    
+
     describe "has_password method" do
 
       it "should be true if the passwords match" do
@@ -98,7 +98,7 @@ describe User do
         matching_user = User.authenticate(@attr[:email], @attr[:password])
         matching_user.should == @user
       end
-    
+
     end
   end
 
@@ -119,6 +119,40 @@ describe User do
     it "should be convertible to an admin" do
       @user.toggle!(:admin) #switch admin? value from false to true 
       @user.should be_admin
+    end
+  end
+
+  describe "micropost associations" do
+    before(:each) do
+      @user = User.create!(@attr)
+      @mp1 = Factory(:micropost, :user => @user,
+                     :created_at => 1.day.ago)
+      @mp2 = Factory(:micropost, :user => @user,
+                     :created_at => 1.hour.ago)
+    end
+
+    it "should have a microposts attribute" do
+      @user.should respond_to(:microposts)
+    end
+
+    it "should have the right micrposts in the right order" do
+      @user.microposts.should == [@mp2, @mp1]
+    end
+
+    it "should destroy associated microposts" do
+      @user.destroy
+      [@mp1, @mp2].each do |micropost|
+        Micropost.find_by_id(micropost.id).should be_nil
+      end
+    end
+
+    it "should raise error when searching associated microposts with find method if destroyed" do
+      @user.destroy
+      [@mp1, @mp2].each do |micropost|
+        lambda do
+          Micropost.find(micropost.id)
+        end.should raise_error(ActiveRecord::RecordNotFound)
+      end
     end
   end
 

@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'haml'
 gem 'rails', '3.0.8'
 gem 'gravatar_image_tag'
 gem 'formtastic', '~> 1.2.0'
