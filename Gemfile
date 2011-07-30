@@ -30,8 +30,18 @@ gem 'sqlite3'
 # and rake tasks are available in development mode:
  group :development, :test do
    gem 'rspec-rails', '2.6.1'
-   gem 'webrat'
-   gem 'spork'
-   gem 'factory_girl_rails'
+   #gem 'webrat'
+   #gem 'spork'
+   #gem 'factory_girl_rails'
    gem 'faker'
+    gem 'annotate'
  end
+
+ group :test do
+
+   gem 'spork'
+   gem 'rspec-rails', '2.6.1'
+   gem 'factory_girl_rails'
+   gem 'webrat'
+ end
+

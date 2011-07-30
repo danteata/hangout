@@ -1,21 +1,41 @@
-<header>
-<%logo_image= image_tag("hangout.png", :alt=>"site logo", :id=>"logo_image") %>    
+<header class ="round">
+<%logo_image= image_tag("hangoutt.png", :alt=>"site logo", :id=>"logo_image") %>    
+
 <%= link_to logo_image, root_path %>
-<nav class="round">
+<div id="search_space" class = "round">
+
+</div>
+
+<div id= "white_space" class ="round">
+
+<%= image_tag("icon_facebook.png",:class =>"network_logos", :alt=>"facebook link", :id=>"facebook_logo") %>    
+<%= image_tag("icon_twitter.png", :class =>"network_logos", :alt=>"facebook link", :id=>"facebook_logo") %>    
+<%= image_tag("icon_linkedin.png",:class =>"network_logos", :alt=>"facebook link", :id=>"facebook_logo") %>    
+<%= image_tag("icon_youtube.png", :class =>"network_logos", :alt=>"facebook link", :id=>"facebook_logo") %>    
+
+<div id = "nav_container" class="round">
+<nav id="round_special">
 <ul>
-  <li><%= link_to "Home", root_path %> </li>
+  <li><%= link_to "Home", root_path %></li>
   <% if signed_in? -%>
     <li><%= link_to "Profile", current_user %></li>
     <li><%= link_to "All users", users_path %></li>
     <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-    <%= link_to "Sign out", signout_path, :method => :delete %>
+    <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
   <% else -%>
-    <li><%= link_to "Contact", contact_path %> </li>
-    <li><%= link_to "About", about_path %> </li>
+    <li><%= link_to "Contact", contact_path  %></li>
+    <li><%= link_to "About", about_path  %></li>
     <li><%= link_to "Sign in", signin_path %></li>
   <% end -%>
 </ul>
 </nav> 
+</div>
+</div>
+
+<!--<div id="white_background">-->
+<!--</div>-->
+<!--<div id="curly_black" class="round">-->
+<!--</div>-->
 </header>
 
 
