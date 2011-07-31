@@ -11,7 +11,7 @@
       = render "layouts/nav"
       #inner_content
         %section
-          - flash.each do |key, value| -#displaying the dynamic flash messages 
+          - flash.each do |key, value| #displaying the dynamic flash messages 
             %div.flash{:class => key}
               = value
 

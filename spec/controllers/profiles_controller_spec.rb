@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe ProfilesController do
+  render_views
 
   describe "GET 'index'" do
     it "should be successful" do
