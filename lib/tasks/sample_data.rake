@@ -3,7 +3,7 @@ namespace :db do
   task :populate => :environment do
     Rake::Task['db:reset'].invoke
     admin = User.create!(:name => "Dan Theta", 
-                 :email =>"dan@yahoo.com",
+                 :email =>"dan.theta@yahoo.co.uk",
                  :password => "foobar",
                  :password_confirmation => "foobar")
     admin.toggle!(:admin) #making the first user an admin 

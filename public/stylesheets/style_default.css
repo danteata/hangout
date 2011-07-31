@@ -21,16 +21,10 @@ body {
   -moz-box-shadow: white 0 4px 8px;
   -webkit-box-shadow: white 0 4px 8px;
   -khtml-box-shadow: white 0 4px 8px;
-  box-shadow: white 0 4px 8px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px; }
+  box-shadow: white 0 4px 8px; }
 
 header {
-  background: black;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px; }
+  background: black; }
 
 #logo_image {
   /*margin-left:10px */ }
@@ -62,10 +56,7 @@ header {
   height: 60px;
   margin-top: 65px;
   float: right;
-  width: 65%;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px; }
+  width: 65%; }
 
 #nav_container {
   /*margin:auto; */
@@ -76,10 +67,7 @@ header {
   /*padding-top:2px; */
   width: 60%;
   height: 40px;
-  background: steelblue;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px; }
+  background: steelblue; }
 
 section {
   /*background: steelblue; */
@@ -90,10 +78,7 @@ section {
   margin: auto;
   margin-bottom: 1px;
   margin-top: 0.4%;
-  padding: 20px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px; }
+  padding: 20px; }
 
 #sign_up_button {
   margin-left: auto;
@@ -124,10 +109,7 @@ a {
   right: 200px;
   background: white;
   height: 20px;
-  width: 150px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px; }
+  width: 150px; }
 
 #inner_content {
   /*background:blue; */
@@ -136,10 +118,7 @@ a {
   /*background:#CBEFB3; */
   background: #73b2dd;
   /*padding-bottom:20px; */
-  margin: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px; }
+  margin: 10px; }
 
 #gravatar {
   margin: auto;

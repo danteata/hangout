@@ -153,6 +153,27 @@ describe User do
           Micropost.find(micropost.id)
         end.should raise_error(ActiveRecord::RecordNotFound)
       end
+
+  describe "spec associaiton" do
+    before(:each) do
+      @user = User.create(@attr)
+      @spec = Factory(:spec, :user => @user)
+    end
+
+    it "should have a spec attribute" do
+      @user.should respond_to(:spec)
+    end
+
+    it "should destroy associated spec" do
+      @user.destroy
+      Spec.find_by_id(@spec.id).should be_nil
+    end
+
+    it "destroyed associated spec should raise error with find function" do
+      lambda do
+        @user.destroy
+        Spec.find(@spec.id)
+      end.should raise_error(ActiveRecord::RecordNotFound)
     end
   end
 

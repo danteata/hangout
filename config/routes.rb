@@ -1,15 +1,26 @@
 SampleApplication::Application.routes.draw do
 
+  #get "specs/new"
+  #get "specs/index"
+
+  #get "specs/edit"
+
+  #get "profiles/index"
+
+  #get "profiles/show"
+
+  resources :specs
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :profiles
 
   match "/signup", :to=> "users#new"
   match "/signin", :to => "sessions#new"
   match "/signout", :to => "sessions#destroy"
   match "/home", :to=>"pages#home"
-  match "/help" =>"pages#help"
-  match "/contact" =>"pages#contact"
-  match "/about" =>"pages#about"
+  match "/help", :to =>"pages#help"
+  match "/contact", :to =>"pages#contact"
+  match "/about", :to =>"pages#about"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

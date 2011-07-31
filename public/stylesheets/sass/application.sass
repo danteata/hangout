@@ -1,0 +1,160 @@
+=shadow
+  :-moz-box-shadow white 0 4px 8px
+  :-webkit-box-shadow white 0 4px 8px
+  :khtml-box-shadow white 0 4px 8px
+  :box-shadow white 0 4px 8px
+
+=rounded
+  :-moz-border-radius 10px
+  :-webkit-border-radius 10px
+  :border-radius 10px
+
+body
+  :background url("/images/bg_image_here.png") #15405C no-repeat
+
+  a
+    :color #09C
+    :text-decoration none
+
+    &:hover
+      :color #069
+      :text-decoration underline
+
+    &:visited
+      :color #069
+
+    &:active
+      :color green
+
+  .container
+    :border 6px solid black
+    :width 85%
+    :margin auto
+    :background white
+    +shadow
+    +rounded
+
+    header
+      :background black
+      +rounded
+
+      #logo_image
+      #search_space
+        :position absolute
+        :top 30px
+        :right 200px
+        :background white
+        :height 20px
+        :width 150px
+        +rounded
+
+      #white_space
+        :background white
+        :height 60px
+        :width 65%
+        :margin-top 65px
+        :float right
+        +rounded
+
+        .network_logos
+          :float right
+          :margin-top 8px
+          :margin-right 8px
+
+        #nav_container
+          :float right
+          :margin-right 12px
+          :margin-top 9px
+          :width 60%
+          :height 40px
+          :background steelblue
+          +rounded
+
+          #round_special
+            :-webkit-border-radius 8px
+            :-moz-border-radius 8px
+            :border-radius 8px
+
+          nav
+            :height 31px
+            :width 100%
+            :background white
+            :margin-top -16px
+
+            ul
+              li
+                :list-style-type none
+                :display inline-block
+                :padding 0.2em
+
+                a
+                  :padding 0 5px
+                  :font-weight bold
+
+    #inner_content
+      :clear both
+      :padding 2px
+      :background #73B2DD
+      :margin 10px
+      +rounded
+
+      section
+        :clear both
+        :background white
+        :width 95%
+        :min-height 450px
+        :margin auto
+        :margin-bottom 1px
+        :padding 20px
+
+        #sign_up_button
+          :margin-left auto
+          :margin-right auto
+          :display block
+          :text-align center
+          :width 190px
+          :color white
+          :background #006400
+          :font-size 150%
+          :font-weight bold
+          :padding 20px
+          +rounded
+
+        #left_side
+          :background white
+          :border 1px solid black
+          :width 23%
+          :padding 10px
+          :height 400px
+          :float left
+          :margin-bottom 20px
+
+          h1
+            #gravatar
+              :margin auto
+              :border 1px solid black
+              :background gray
+
+              img
+                :margin auto
+                :margin-auto 10px
+        #middle_side
+          :background white
+          :width 45%
+          :height 250px
+          :border 1px solid black
+          :float left
+          :margin-left 3%
+          :padding 5px
+
+        #right_side
+          :background white
+          :width 20%
+          :height 250px
+          :float left
+          :border 1px solid black
+          :margin-left 3%
+          :padding 5px
+          
+    footer
+
