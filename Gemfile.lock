@@ -45,6 +45,7 @@ GEM
       activesupport (>= 2.3.7)
       i18n (~> 0.4)
     gravatar_image_tag (1.0.0)
+    haml (3.1.2)
     i18n (0.5.0)
     mail (2.2.19)
       activesupport (>= 2.3.6)
@@ -107,6 +108,7 @@ DEPENDENCIES
   faker
   formtastic (~> 1.2.0)
   gravatar_image_tag
+  haml (= 3.1.2)
   rails (= 3.0.8)
   rspec-rails (= 2.6.1)
   spork
