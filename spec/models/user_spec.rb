@@ -153,7 +153,8 @@ describe User do
           Micropost.find(micropost.id)
         end.should raise_error(ActiveRecord::RecordNotFound)
       end
-
+    end
+  end
   describe "spec associaiton" do
     before(:each) do
       @user = User.create(@attr)
