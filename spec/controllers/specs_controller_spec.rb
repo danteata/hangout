@@ -12,10 +12,14 @@ describe SpecsController do
   end
 
   describe "GET 'edit'" do
+    before(:each) do
+      @user = Factory(:user)
+      test_sign_in(@user)
+    end
+
     it "should be successful" do
-      #get :edit
-      #response.should be_success
-      pending
+      get :edit, :id => @user
+      response.should be_success
     end
   end
 

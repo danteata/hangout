@@ -2,6 +2,10 @@
   - logo_image = image_tag("hangoutt.png", :alt=>"site logo", :id=>"logo_image")
   = link_to logo_image, root_path
   #search_space
+    =form_tag(users_path, :method => "get") do
+      %label Search
+      = text_field_tag "term", params[:term]
+      = submit_tag "go"
   #white_space
     %a
       %img.network_logos#facebook_logo{:src => "/images/icon_facebook.png", :alt => "facebook link"}

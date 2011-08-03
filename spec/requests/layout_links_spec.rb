@@ -40,8 +40,10 @@ describe "LayoutLinks" do
       @user = Factory(:user)
       visit signin_path
       fill_in "Email", :with =>@user.email
+      #fill_in "Email", :with => "dan.theta@yahoo.co.uk"
       fill_in "Password", :with =>@user.password
-      click_button
+      #fill_in "Password", :with =>"foobar"
+      click_button "Sign in" 
     end
 
     it "should hava a signout link" do
@@ -49,7 +51,7 @@ describe "LayoutLinks" do
       response.should have_selector("a", :href => signout_path, 
                                           :content => "Sign out")
     end
-
+    
     it "should hava a profile link" do
       visit root_path
       response.should have_selector("a", :href=>user_path(@user),

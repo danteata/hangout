@@ -11,9 +11,18 @@ describe ProfilesController do
   end
 
   describe "GET 'show'" do
+    before(:each) do
+      @user = Factory(:user)
+    end
+
     it "should be successful" do
-      get 'show'
+      get 'show', :id =>@user
       response.should be_success
+    end
+
+    it "should have the right user" do
+      get :show, :id => @user
+      assigns(:user).should == @user
     end
   end
 

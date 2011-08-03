@@ -7,13 +7,16 @@ describe Spec do
   end
 
   it "should create a new instance given right value" do
+    @user.spec = Spec.new
     @user.spec.create!(@attr)
   end
 
   describe "user associations" do
     before(:each) do
+      @user.spec = Spec.new
       @spec = @user.spec.create(@attr)
     end
+
     it "should have a related user" do
       @spec.should respond_to(:user)
     end

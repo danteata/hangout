@@ -26,6 +26,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the network, #{@user.name}"
       redirect_to @user
     else
+      flash[:error] = "Signup not successful"
       @title = "Sign up"
       render 'new'
     end

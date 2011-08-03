@@ -32,11 +32,15 @@ body {
         top: 30px;
         right: 200px;
         background: white;
-        height: 20px;
-        width: 150px;
+        height: 25px;
+        width: 250px;
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
         border-radius: 10px; }
+        body .container header #search_space form {
+          -moz-border-radius: 10px;
+          -webkit-border-radius: 10px;
+          border-radius: 10px; }
       body .container header #white_space {
         background: white;
         height: 60px;
