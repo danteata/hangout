@@ -1,0 +1,38 @@
+%h1 Edit Specs
+%h1
+  =@user.name
+
+= form_for (@spec) do |f|
+  %fieldset
+    %legend 
+      = @title
+    = render 'shared/error_messages', :object =>f.object
+    .field
+      = f.label :first_name
+      %br 
+      = f.text_field :first_name
+    .field
+      = f.label :last_name
+      %br
+      = f.text_field :last_name
+    .field
+      = f.label :gender
+      %br
+      = radio_button :spec, :gender, "Male"
+      Male
+      = radio_button :spec, :gender, "Female"
+      Female
+    .field
+      = f.label :birthday
+      %br
+      = date_select :spec, :birthday,
+                    :start_year => 1930,
+                    :end_year => Time.now.year,
+                    :order => [:month, :day, :year]
+    .field
+      = f.label :occupation
+      %br
+      = f.text_field :occupation
+    .actions
+      = f.submit "Edit spec"
+

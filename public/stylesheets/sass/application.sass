@@ -1,3 +1,4 @@
+
 =shadow
   :-moz-box-shadow white 0 4px 8px
   :-webkit-box-shadow white 0 4px 8px
@@ -11,7 +12,21 @@
 
 body
   :background url("/images/bg_image_here.png") #15405C no-repeat
+  //:background = url("/images/bg_image_here.png") !bodycolor no-repeat
 
+  fieldset
+    :margin-top 10px
+    //:background #15405C
+    :background #73B2DD
+    :color black
+
+  legend
+    :background black
+    //:background #73B2DD
+    :color white
+    :font-weight bold
+    :padding 2px
+    +rounded
   a
     :color #09C
     :text-decoration none
@@ -98,17 +113,20 @@ body
       :clear both
       :padding 2px
       :background #73B2DD
+      //:background white
       :margin 10px
       +rounded
 
       section
         :clear both
-        :background white
+        //:background white
+        :background #73B2DD
         :width 95%
         :min-height 450px
         :margin auto
         :margin-bottom 1px
         :padding 20px
+        +rounded
 
         #sign_up_button
           :margin-left auto
@@ -142,13 +160,16 @@ body
                 :margin auto
                 :margin-auto 10px
         #middle_side
-          :background white
+          //:background white
+          :color white
+          :background #15405C
           :width 45%
-          :height 250px
+          :height 380px
           :border 1px solid black
           :float left
           :margin-left 3%
           :padding 5px
+          +rounded
 
         #right_side
           :background white

@@ -17,6 +17,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @title = @user.name
+    @user.spec ||= Spec.new
+    @spec = @user.spec
   end
 
   def create

@@ -1,12 +1,58 @@
+%h1 User Hub
 #left_side
   %h1
     #gravatar
       = gravatar_for (@user)
       %br/
       = @user.name
+    = @spec.full_name
+    %br/
+    =@spec.occupation
+    %br/
+    =@spec.birthday
+  %hr/
+  = link_to profile_url(@user), profile_path(@user)
+  %hr/
+  #bio
+    %h2
+      My Bio
+    Some stuffs about me yo!
 
 #middle_side
-  main content will be here!!
+  %fieldset
+    %legend
+      Basic User Info
+    %table
+      %tr
+        %td.label
+          Screen Name:
+        %td
+          = @user.name
+      %tr
+        %td.label
+          Email:
+        %td
+          = @user.email
+      %tr
+        %td.label
+          Password:
+        %td
+          ******
+    %span.edit_link
+      = link_to "edit", edit_user_path(@user)
+
+  %fieldset
+    %legend
+      User Spec
+    %table
+      -#= render 'specs/field_row', :collection => Spec::ALL_FIELDS
+      - Spec::ALL_FIELDS.each do |field|
+        = render 'specs/field_row', :field_row => field
+    %span.edit_link
+      = link_to "edit", edit_spec_path(@user)
 
 #right_side
   notification and ads will be here
+  mobile monday this friday
+  saturday mesters follow the link
+  = link_to "saturday mesters", "www.google.com"
