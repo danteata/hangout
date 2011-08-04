@@ -1,5 +1,9 @@
 SampleApplication::Application.routes.draw do
 
+  get "faqs/index"
+
+  get "faqs/edit"
+
   #get "specs/new"
   #get "specs/index"
 
@@ -8,7 +12,7 @@ SampleApplication::Application.routes.draw do
   #get "profiles/index"
 
   #get "profiles/show"
-
+  resources :faqs
   resources :specs
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]

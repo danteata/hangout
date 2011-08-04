@@ -11,13 +11,10 @@ class SpecsController < ApplicationController
     redirect_to users_path
   end
 
-  def show
-  end
 
   def edit
     @user = User.find(params[:id])
-    @user.spec ||= Spec.new
-    @spec = @user.spec
+    @spec = @user.spec ||= Spec.new
     @title = "Edit specs"
   end
 

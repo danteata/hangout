@@ -1,0 +1,12 @@
+%h1
+  Frequently asked questions
+%p
+  Please answer some basic questions about yourself
+= form_for @faq do |form|
+  %fieldset
+    %legend
+      Update Your FAQ
+    - Faq::QUESTIONS.each do |question|
+      = render 'answer_text_area',
+        :form =>form, :answer_text_area => question
+    = submit_tag "Update All"

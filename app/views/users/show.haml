@@ -16,7 +16,9 @@
   #bio
     %h2
       My Bio
-    Some stuffs about me yo!
+    = sanitize @faq.bio
+    %span.edit_link
+      = link_to "(edit)", edit_faq_path(@user)
 
 #middle_side
   %fieldset
@@ -50,6 +52,8 @@
         = render 'specs/field_row', :field_row => field
     %span.edit_link
       = link_to "edit", edit_spec_path(@user)
+  - Faq::FAVOURITES.each do |favourite|
+    = render 'faqs/sidebar_box', :sidebar_box => favourite
 
 #right_side
   notification and ads will be here

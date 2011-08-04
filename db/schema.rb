@@ -10,7 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727173919) do
+ActiveRecord::Schema.define(:version => 20110804190455) do
+
+  create_table "faqs", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "bio"
+    t.text     "skillsets"
+    t.text     "schools"
+    t.text     "companies"
+    t.text     "music"
+    t.text     "movies"
+    t.text     "television"
+    t.text     "books"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
