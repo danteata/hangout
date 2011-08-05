@@ -12,6 +12,11 @@
     =@spec.birthday
   %hr/
   = link_to profile_url(@user), profile_path(@user)
+  = friendship_status(current_user, @user) if current_user != @user
+  %br/
+  - unless Friendship.exists?(current_user, @user) or @user == current_user
+    = link_to "Add #{current_user.name} as friend","www.google.com",
+                    :confirm => "Add #{@user.name} as friend?"
   %hr/
   #bio
     %h2

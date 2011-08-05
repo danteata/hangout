@@ -1,0 +1,16 @@
+%p
+  Hello,
+
+Heard you've lost your login information.
+
+Well this is it:
+%br/
+Screen name:
+= @user.name
+%br/
+Password:
+= @user.encrypted_password
+%br/
+Edit Profile: 
+= edit_user_path(@user, :host=>'localhost:3000')
+The MEST hangout team.

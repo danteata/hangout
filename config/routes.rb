@@ -1,5 +1,7 @@
 SampleApplication::Application.routes.draw do
 
+  get "emails/remind"
+
   get "faqs/index"
 
   get "faqs/edit"
@@ -12,6 +14,7 @@ SampleApplication::Application.routes.draw do
   #get "profiles/index"
 
   #get "profiles/show"
+  resources :emails
   resources :faqs
   resources :specs
   resources :users
@@ -25,6 +28,8 @@ SampleApplication::Application.routes.draw do
   match "/help", :to =>"pages#help"
   match "/contact", :to =>"pages#contact"
   match "/about", :to =>"pages#about"
+  match "/request", :to =>"friendships#create"
+  match "/emails/remind", :to =>"emails#remind"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

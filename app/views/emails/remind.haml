@@ -1,0 +1,10 @@
+= form_for(:user) do |f|
+  %fieldset
+    %legend
+      = @title
+    =f.label :email
+    %br/
+    = f.text_field :email
+    %br/
+    = f.submit "Email me!"
+
