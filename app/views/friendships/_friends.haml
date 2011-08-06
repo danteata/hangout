@@ -9,7 +9,7 @@
         = pluralize(@requested_friends.count, "requested friend")
     = render @requested_friends
 
-  -unless @pending_friends.empty? or !hide_edit_links?
+  -unless @pending_friends.empty? or hide_edit_links?
     %tr
       %th
         = pluralize(@pending_friends.count, "pending friend")
