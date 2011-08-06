@@ -14,10 +14,22 @@ class UserMailer < ActionMailer::Base
          :subject=>"Your password reminder.")
   end
 
-  def friend_request(user, pending_friend)
+  def friend_request(user, friend)
     @user = user
-    @pending_friend = pending_friend
+    @pending_friend = friend
+    @accept_url = url_for(:action =>"accept",  :id=>@user.id, :host =>"localhost:3000")
+    @decline_url = url_for(:action => "decline", :id => @user.id, :host =>"localhost:3000")
     mail(:to=>user.email,
         :subject=>"Request for your friendship")
+  end
+
+  #method to render the corresponding message
+  #params user, the sender, recipient, the receiver
+  #message, the message object which component will be rendered in view
+  def message(user, recipient, message)
+    @recipient = recipient
+    @user = user
+    @message = message
+    mail(:to =>recipient, :subject => message.subject)
   end
 end

@@ -1,6 +1,9 @@
 SampleApplication::Application.routes.draw do
 
   get "emails/remind"
+  get "emails/correspond"
+  get "friendships/initiate"
+  get "friendships/accept"
 
   get "faqs/index"
 
@@ -30,6 +33,9 @@ SampleApplication::Application.routes.draw do
   match "/about", :to =>"pages#about"
   match "/request", :to =>"friendships#create"
   match "/emails/remind", :to =>"emails#remind"
+  match "/emails/correspond", :to => "emails#correspond"
+  match "/friendships/initiate", :to => "friendships#initiate"
+  match "/friendships/accept", :to => "friendships#accept"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

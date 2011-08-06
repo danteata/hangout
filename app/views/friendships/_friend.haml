@@ -1,0 +1,9 @@
+%tr
+  %td
+    = gravatar_for friend, :side => 30
+    = link_to friend.name, profile_path(friend)
+  %td
+    = unless hide_edit_links?
+      = link_to "Delete", {:controller => "friendship",
+            :action => "delete", :id => friend.id},
+            :confirm => "Delete friendship with #{friend.name}?"

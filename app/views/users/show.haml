@@ -17,6 +17,7 @@
     %h2
       My Bio
     = sanitize @faq.bio
+    %br/
     %span.edit_link
       = link_to "(edit)", edit_faq_path(@user)
 

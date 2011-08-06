@@ -1,23 +1,25 @@
-%h1
-  Sign in
+%fieldset
+  %legend
+    Sign in
 
-= form_for(:session, :url => sessions_path) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.text_field :email
+  = form_for(:session, :url => sessions_path) do |f|
+    .field
+      = f.label :email
+      %br/
+      = f.text_field :email
 
-  .field
-    = f.label :password
-    = f.password_field :password
+    .field
+      = f.label :password
+      %br/
+      = f.password_field :password
 
-  .actions
-    = f.submit "Sign in"
+    .actions
+      = f.submit "Sign in"
 
-  %p
-    Forgot your login information?
-    = link_to "Remind me!", :controller => "emails",
-                            :action => "remind"
-  %p
-    Not a member?
-    = link_to "Register now!" , signup_path
+    %p
+      Forgot your login information?
+      = link_to "Remind me!", :controller => "emails",
+                              :action => "remind"
+    %p
+      Not a member?
+      = link_to "Register now!" , signup_path

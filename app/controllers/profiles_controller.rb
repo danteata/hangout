@@ -16,6 +16,7 @@ class ProfilesController < ApplicationController
   def show
     @hide_edit_links = true
     @user = User.find(params[:id])
+    @friends = @user.friends
     @title = @user.name
     @spec = @user.spec ||=Spec.new
     @faq = @user.faq ||= Faq.new

@@ -58,6 +58,7 @@ class UsersController < ApplicationController
 
 
 
+
   #private
 
     #def authenticate

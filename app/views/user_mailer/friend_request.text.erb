@@ -1,0 +1,12 @@
+Hello <%= @friend.name %>,
+
+You have a new friend request from <%= @user.name %>
+
+View <%= @user.name %>'s profile:
+<%= link_to @user, user_url(@user, :host=>"localhost:3000") %>'
+
+Accept: <%= @accept_url %>
+
+Decline: <%= @decline_url %>
+
+--MEST hangout team

@@ -9,6 +9,23 @@ class User < ActiveRecord::Base
   has_one :spec, :dependent => :destroy
 
   has_one :faq, :dependent => :destroy
+
+  has_many :friendships
+
+  has_many :friends,
+           :through => :friendships,
+           :conditions => "status = 'accepted'",
+           :order => :name
+  has_many :requested_friends,
+           :through => :friendships,
+           :source => :friend,
+           :conditions => "status = 'requested'",
+           :order => :created_at
+  has_many :pending_friends,
+           :through => :friendships,
+           :source => :friend,
+           :conditions => "status = 'pending'",
+           :order => :created_at
   
   email_regex = /\A[\w+\-.]+@[a-z\-.\d]+\.[a-z]+\z/i
   
@@ -35,8 +52,13 @@ class User < ActiveRecord::Base
     user = find_by_id(id)
     (user && user.salt == cookie_salt) ? user : nil
   end
+
   def has_password? (submitted_password) #compares an encrypted version of submitted password with encrypted_password in database. 
     encrypted_password == encrypt(submitted_password)
+  end
+  
+  def self.is_same?(user, friend)
+    user == friend
   end
 
 
