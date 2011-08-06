@@ -22,9 +22,9 @@ module FriendshipsHelper
 
     case friendship.status
     when 'requested'
-      "Friend requested"
+      "awaiting ur approval"
     when 'pending'
-      "Pending approval"
+      "sent request"
     end
   end
 end

@@ -1,8 +1,10 @@
 %tr
+
   %td
     = gravatar_for user, :side => 30
     %br/
     = link_to user.name, profile_path(user)
+
   %td
     = friendship_action(current_user, user)
 

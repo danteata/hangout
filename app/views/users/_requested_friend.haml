@@ -3,8 +3,8 @@
     = gravatar_for requested_friend, :side => 30
     = link_to requested_friend.name, profile_path(requested_friend)
   %td
-    = link_to "Accept", {:controller => "friendships",
+    = link_to "Accept", {:controller => "friendship",
           :action => "accept", :id => requested_friend.id}
-    = link_to "Decline", {:controller => "friendships",
+    = link_to "Decline", {:controller => "friendship",
       :action => "decline", :id => requested_friend.id},
       :confirm => "Turn down friendship with #{requested_friend.name}?"

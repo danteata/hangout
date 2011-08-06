@@ -2,15 +2,18 @@
   %tr
     %th
       = pluralize(@friends.count,"friend")
-  = render @friends
+  - @friends.each do |friend|
+    = render "friendships/friend", :friend => friend
   -unless @requested_friends.empty? or hide_edit_links?
     %tr
       %th
-        = pluralize(@requested_friends.count, "requested friend")
-    = render @requested_friends
+        = pluralize(@requested_friends.count, "requesting friend")
+    - @requested_friends.each do |requested_friend|
+      = render "friendships/requested_friend", :requested_friend => requested_friend
 
   -unless @pending_friends.empty? or hide_edit_links?
     %tr
       %th
-        = pluralize(@pending_friends.count, "pending friend")
-    = render @pending_friends
+        = pluralize(@pending_friends.count, "requested friend")
+    - @pending_friends.each do |pending_friend|
+      = render "friendships/pending_friend", :pending_friend => pending_friend

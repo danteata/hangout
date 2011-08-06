@@ -3,6 +3,6 @@
     = gravatar_for pending_friend, :side => 30
     = link_to pending_friend.name, profile_path(pending_friend)
   %td
-    = link_to "Cancel", {:controller => "friendships",
+    = link_to "Cancel", {:controller => "friendship",
       :action => "cancel", :id => pending_friend.id},
       :confirm => "Cancel friendship with #{pending_friend.name}?"

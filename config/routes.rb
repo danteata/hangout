@@ -5,6 +5,7 @@ SampleApplication::Application.routes.draw do
   get "friendships/initiate"
   get "friendships/accept"
   get "friendships/decline"
+  get "friendships/cancel"
 
   get "faqs/index"
 
