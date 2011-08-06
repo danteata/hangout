@@ -15,7 +15,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @hide_edit_links = false
     @user = User.find(params[:id])
+    @friends = @user.friends
+    @requested_friends = @user.requested_friends
+    @pending_friends = @user.pending_friends
     @title = @user.name
     @spec = @user.spec ||= Spec.new
     @faq = @user.faq ||= Faq.new

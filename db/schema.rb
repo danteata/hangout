@@ -30,8 +30,9 @@ ActiveRecord::Schema.define(:version => 20110805001310) do
     t.integer  "user_id"
     t.integer  "friend_id"
     t.string   "status"
-    t.datetime "created_at"
+    t.datetime "initiated_at"
     t.datetime "accepted_at"
+    t.datetime "created_at"
     t.datetime "updated_at"
   end
 

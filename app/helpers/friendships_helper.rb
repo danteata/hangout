@@ -15,10 +15,11 @@ module FriendshipsHelper
   end
 
   def friendship_action(user, friend)
+    return "me" if User.is_same?(user, friend)
     friendship = Friendship.find_by_user_id_and_friend_id(user, friend)
     return link_to "Add friend", {:controller =>"friendships",
       :action =>"initiate", :id => friend.id},
-      :confirm =>"Add #{friend.name}?" if friendship.nil?
+      :confirm =>"Add #{friend.name}?" if friendship.nil? 
 
     case friendship.status
     when 'requested'

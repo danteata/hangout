@@ -6,6 +6,7 @@ SampleApplication::Application.routes.draw do
   get "friendships/accept"
   get "friendships/decline"
   get "friendships/cancel"
+  get "friendships/delete"
 
   get "faqs/index"
 
@@ -39,6 +40,7 @@ SampleApplication::Application.routes.draw do
   match "/emails/correspond", :to => "emails#correspond"
   match "/friendships/initiate", :to => "friendships#initiate"
   match "/friendships/accept", :to => "friendships#accept"
+  match "/friendships/delete", :to => "friendships#delete"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

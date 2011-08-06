@@ -32,6 +32,7 @@ class SpecsController < ApplicationController
   #end
 
   def create
+    @user = current_user
     @user.spec ||= Spec.new
     if @user.spec.update_attributes(params[:spec])
       flash[:notice] = "changes saved successfully"

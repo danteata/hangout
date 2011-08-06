@@ -11,3 +11,20 @@ class Spec < ActiveRecord::Base
     [first_name, last_name].join(" ")
   end
 end
+
+# == Schema Information
+#
+# Table name: specs
+#
+#  id         :integer         not null, primary key
+#  user_id    :integer
+#  first_name :string(255)
+#  last_name  :string(255)
+#  gender     :string(255)
+#  birthday   :date
+#  occupation :string(255)
+#  city       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+

@@ -12,3 +12,22 @@ class Faq < ActiveRecord::Base
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: faqs
+#
+#  id         :integer         not null, primary key
+#  user_id    :integer
+#  bio        :text
+#  skillsets  :text
+#  schools    :text
+#  companies  :text
+#  music      :text
+#  movies     :text
+#  television :text
+#  books      :text
+#  created_at :datetime
+#  updated_at :datetime
+#
+

@@ -20,12 +20,12 @@ class User < ActiveRecord::Base
            :through => :friendships,
            :source => :friend,
            :conditions => "status = 'requested'",
-           :order => :created_at
+           :order => :initiated_at
   has_many :pending_friends,
            :through => :friendships,
            :source => :friend,
            :conditions => "status = 'pending'",
-           :order => :created_at
+           :order => :initiated_at
   
   email_regex = /\A[\w+\-.]+@[a-z\-.\d]+\.[a-z]+\z/i
   
@@ -81,4 +81,19 @@ class User < ActiveRecord::Base
     Digest::SHA2.hexdigest(string)
   end
 end
+
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean         default(FALSE)
+#
 
