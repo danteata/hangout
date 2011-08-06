@@ -17,8 +17,8 @@ class UserMailer < ActionMailer::Base
   def friend_request(user, friend)
     @user = user
     @pending_friend = friend
-    @accept_url = url_for(:action =>"accept",  :id=>@user.id, :host =>"localhost:3000")
-    @decline_url = url_for(:action => "decline", :id => @user.id, :host =>"localhost:3000")
+    @accept_url = url_for(:controller => "friendships", :action =>"accept",  :id=>@user.id, :host =>"localhost:3000")
+    @decline_url = url_for(:controller =>"friendships",:action => "decline", :id => @user.id, :host =>"localhost:3000")
     mail(:to=>user.email,
         :subject=>"Request for your friendship")
   end

@@ -4,6 +4,7 @@ SampleApplication::Application.routes.draw do
   get "emails/correspond"
   get "friendships/initiate"
   get "friendships/accept"
+  get "friendships/decline"
 
   get "faqs/index"
 
@@ -23,6 +24,7 @@ SampleApplication::Application.routes.draw do
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :profiles
+  resources :friendships
 
   match "/signup", :to=> "users#new"
   match "/signin", :to => "sessions#new"

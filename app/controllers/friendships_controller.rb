@@ -5,7 +5,7 @@ class FriendshipsController < ApplicationController
     #@user = current_user
     #@friend = User.find(params[:id])
     Friendship.request(@user, @friend)
-    UserMailer.friend_request(@user, @friend).deliver
+    #UserMailer.friend_request(@user, @friend).deliver
     flash[:notice] = "Friend request sent"
     redirect_to profile_path(@friend)
 
