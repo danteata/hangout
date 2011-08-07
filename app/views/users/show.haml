@@ -58,6 +58,35 @@
 
   %fieldset
     %legend
+      Networks
+    %table
+      %tr
+        %td
+          Facebook:
+        %td
+          = @network.facebook
+      %tr
+        %td
+          Twitter:
+        %td
+          = @network.twitter
+      %tr
+        %td
+          LinkedIn:
+        %td
+          = @network.linkedin
+      %tr
+        %td
+          Youtube:
+        %td
+          = @network.youtube
+
+    - unless hide_edit_links?
+      %span.edit_link
+        = link_to "edit", edit_network_path(@user)
+        
+  %fieldset
+    %legend
       User Spec
     %table
       -#= render 'specs/field_row', :collection => Spec::ALL_FIELDS

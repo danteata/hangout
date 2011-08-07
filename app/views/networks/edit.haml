@@ -1,0 +1,23 @@
+%h1
+  Edit your networks and sites
+= form_for @network do |form|
+  %fieldset
+    %legend
+      Update your network
+    = form.label :facebook
+    %br/
+    = form.text_field :facebook
+    %br/
+    =form.label :linkedin
+    %br/
+    =form.text_field :linkedin
+    %br
+    =form.label :twitter
+    %br/
+    =form.text_field :twitter
+    %br/
+    = form.label :youtube
+    %br/
+    = form.text_field :youtube
+    %br/
+    = form.submit

@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     @title = @user.name
     @spec = @user.spec ||= Spec.new
     @faq = @user.faq ||= Faq.new
+    @network = @user.network ||= Network.new
   end
 
   def create

@@ -10,7 +10,9 @@ class User < ActiveRecord::Base
 
   has_one :faq, :dependent => :destroy
 
-  has_many :friendships
+  has_one :network, :dependent => :destroy
+
+  has_many :friendships, :dependent => :destroy
 
   has_many :friends,
            :through => :friendships,

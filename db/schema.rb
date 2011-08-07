@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110805001310) do
+ActiveRecord::Schema.define(:version => 20110806235935) do
 
   create_table "faqs", :force => true do |t|
     t.integer  "user_id"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(:version => 20110805001310) do
 
   add_index "microposts", ["created_at"], :name => "index_microposts_on_created_at"
   add_index "microposts", ["user_id"], :name => "index_microposts_on_user_id"
+
+  create_table "networks", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "youtube"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "specs", :force => true do |t|
     t.integer  "user_id"

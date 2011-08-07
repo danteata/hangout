@@ -1,5 +1,9 @@
 SampleApplication::Application.routes.draw do
 
+  get "networks/index"
+
+  get "networks/edit"
+
   get "emails/remind"
   get "emails/correspond"
   get "friendships/initiate"
@@ -27,6 +31,7 @@ SampleApplication::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   resources :profiles
   resources :friendships
+  resources :networks
 
   match "/signup", :to=> "users#new"
   match "/signin", :to => "sessions#new"

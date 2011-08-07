@@ -7,14 +7,22 @@
       = text_field_tag "term", params[:term]
       = submit_tag "go"
   #white_space
-    %a
-      %img.network_logos#facebook_logo{:src => "/images/icon_facebook.png", :alt => "facebook link"}
-    %a
-      %img.network_logos#twitter_logo{:src => "/images/icon_twitter.png", :alt => "twitter link"}
-    %a
-      %img.network_logos#linkedin_logo{:src => "/images/icon_linkedin.png", :alt => "linkedIn link"}
-    %a
-      %img.network_logos#youtube_logo{:src => "/images/icon_youtube.png", :alt => "youtube link"}
+    = link_to image_tag("icon_facebook.png",:alt=>"facebook", :class=>"network_logos", :id=>"facebook_logo"),
+      :host => "www.facebook.com/#{current_user.network.facebook}"
+    = link_to image_tag("icon_twitter.png",:alt=>"twitter", :class=>"network_logos", :id=>"twitter_logo"),
+      "www.twitter.com/#{current_user.network.twitter}"
+    = link_to image_tag("icon_linkedin.png",:alt=>"linkedin", :class=>"network_logos", :id=>"linkedin_logo"),
+      "www.linkedin.com/#{current_user.network.linkedin}"
+    = link_to image_tag("icon_youtube.png",:alt=>"youtube", :class=>"network_logos", :id=>"youtube_logo"),
+      "www.youtube.com/#{current_user.network.youtube}"
+    -#%a
+      -#%img.network_logos#facebook_logo{:src => "/images/icon_facebook.png", :alt => "facebook link"}
+    -#%a
+      -#%img.network_logos#twitter_logo{:src => "/images/icon_twitter.png", :alt => "twitter link"}
+    -#%a
+      -#%img.network_logos#linkedin_logo{:src => "/images/icon_linkedin.png", :alt => "linkedIn link"}
+    -#%a
+      -#%img.network_logos#youtube_logo{:src => "/images/icon_youtube.png", :alt => "youtube link"}
     #nav_container
       %nav#round_special
         %ul
