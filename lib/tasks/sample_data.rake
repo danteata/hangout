@@ -27,31 +27,33 @@ namespace :db do
       #linkedin_name = Faker::Name.first_name
       #networks = {:facebook => facebook_name, :linkedin =>linkedin_name,
                   #:youtube => youtube_name, :twitter => twitter_name}
-      networks = {:facebook =>first_name, :linkedin =>first_name,
-                  :youtube => last_name, :twitter => last_name}
+      networks = {:facebook =>first_name.downcase, :linkedin =>first_name.downcase,
+                  :youtube => last_name.downcase, :twitter => last_name.downcase}
       user.network = Network.new
       user.network.update_attributes(networks)
 
       bio = Faker::Lorem.sentences(5).join(" ")
-      music = Faker::Lorem.words(5).to_s.capitalize
-      movies = Faker::Lorem.words(5).to_s.capitalize
-      television = Faker::Lorem.words(5).to_s.capitalize
-      books = Faker::Lorem.words(5).to_s.capitalize
-      skillsets = Faker::Lorem.words(5).to_s.capitalize
-      companies = Faker::Lorem.words(2).to_s.capitalize
-      schools = Faker::Lorem.words(5).to_s.capitalize
+      #music = Faker::Lorem.words(5).split.to_s.capitalize.join(", ").to_s
+      musics = Faker::Lorem.words(8).map {|music| music.capitalize}.join(", ").to_s
+      movies = Faker::Lorem.words(5).map {|movie| movie.capitalize}.join(", ").to_s
+      companies = Faker::Lorem.words(2).map {|company| company.capitalize}.join(", ").to_s
+      televisions = Faker::Lorem.words(5).map {|television| television.capitalize}.join(", ").to_s
+      books = Faker::Lorem.words(5).map {|book| book.capitalize}.join(", ").to_s
+      schools = Faker::Lorem.words(4).map {|school| school.capitalize}.join(", ").to_s
+      skillsets = Faker::Lorem.words(5).map {|skillset| skillset.capitalize}.join(", ").to_s
 
-      faq = {:bio => bio, :music => music, :movies => movies,
-             :television => television, :boooks => books, :skillsets => skillsets,
+      faq = {:bio => bio, :music => musics, :movies => movies,
+             :television => televisions, :books => books, :skillsets => skillsets,
              :companies => companies, :schools => schools}
       user.faq = Faq.new
       user.faq.update_attributes(faq)
 
-      occupation = Faker::Lorem.words(1).to_s.capitalize
+      occupations = Faker::Lorem.words(2).map {|occupation| occupation.capitalize}.join(", ").to_s
+      #occupations.map {|occupation| occupation.capitalize}.join(", ").to_s
       spec = {:first_name => first_name, :last_name => last_name,
-              :occupation => occupation}
-      user.spec = Spec.new
-      user.spec.update_attributes(spec)
+              :occupation => occupations}
+      #user.spec = Spec.new
+      #user.spec.update_attributes(spec)
     end
   end
 end

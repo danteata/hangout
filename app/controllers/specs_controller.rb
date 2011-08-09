@@ -45,7 +45,8 @@ class SpecsController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.spec ||=Spec.new(:user_id => @user.id)
+    #@user.spec ||=Spec.new(:user_id => @user.id)
+    @user.spec ||= Spec.new
    if  @user.spec.update_attributes(params[:spec])
     flash[:success] = "Changes saved"
     redirect_to @user
