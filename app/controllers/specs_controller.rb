@@ -35,7 +35,7 @@ class SpecsController < ApplicationController
     @user = current_user
     @user.spec ||= Spec.new
     if @user.spec.update_attributes(params[:spec])
-      flash[:notice] = "changes saved successfully"
+      flash[:success] = "changes saved successfully"
       redirect_to @user
     else
       @title = "Edit user"
@@ -47,7 +47,7 @@ class SpecsController < ApplicationController
     @user = User.find(params[:id])
     @user.spec ||=Spec.new(:user_id => @user.id)
    if  @user.spec.update_attributes(params[:spec])
-    flash[:notice] = "Changes saved"
+    flash[:success] = "Changes saved"
     redirect_to @user
    else
      @title = "Edit user"

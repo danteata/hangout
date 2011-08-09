@@ -6,6 +6,8 @@ gem 'formtastic', '~> 1.2.0'
 gem 'will_paginate'
 gem 'sqlite3'
 gem 'haml', '3.1.2'
+#gem 'haml-rails'
+gem 'compass'
 #gem 'sass'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

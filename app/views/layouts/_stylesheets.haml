@@ -1,0 +1,9 @@
+= stylesheet_link_tag "compiled/application", :media => "screen"
+= stylesheet_link_tag "blueprint/screen", :media => "screen"
+= stylesheet_link_tag "blueprint/print", :media => "print"
+= stylesheet_link_tag "compiled/screen", :media => "screen, projection"
+= stylesheet_link_tag "compiled/print", :media => "print"
+/[if lt IE 8]
+  = stylesheet_link_tag "compiled/screen", :media => "screen, projection"
+
+

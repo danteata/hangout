@@ -1,0 +1,100 @@
+/*
+Syntax error: File to import not found or unreadable: blueprint.
+              Load path: /home/dantheta/rails_projects/sample_application/public/stylesheets/sass
+        on line 1 of /home/dantheta/rails_projects/sample_application/public/stylesheets/sass/print.scss
+
+1: @import "blueprint";
+2: 
+3: //Recommended Blueprint configuration with scoping and semantic layout:
+4: body.bp {
+5:   @include blueprint-print(true); }
+
+Backtrace:
+/home/dantheta/rails_projects/sample_application/public/stylesheets/sass/print.scss:1
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/import_node.rb:64:in `import'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/import_node.rb:25:in `imported_file'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/perform.rb:148:in `visit_import'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/perform.rb:18:in `visit'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/perform.rb:27:in `visit_children'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/perform.rb:39:in `with_environment'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/perform.rb:26:in `visit_children'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/perform.rb:47:in `visit_root'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/perform.rb:18:in `visit'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/perform.rb:7:in `send'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/visitors/perform.rb:7:in `visit'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/tree/root_node.rb:20:in `render'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/engine.rb:291:in `_render'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/engine.rb:239:in `render'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/util.rb:298:in `silence_sass_warnings'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/engine.rb:239:in `render'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/plugin/compiler.rb:319:in `update_stylesheet'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/plugin/compiler.rb:181:in `update_stylesheets'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/plugin/compiler.rb:175:in `each'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/plugin/compiler.rb:175:in `update_stylesheets'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/plugin/compiler.rb:173:in `each'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/plugin/compiler.rb:173:in `update_stylesheets'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/plugin.rb:81:in `update_stylesheets'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/plugin.rb:54:in `check_for_updates'
+/var/lib/gems/1.8/gems/haml-3.1.2/vendor/sass/lib/sass/../sass/plugin/rack.rb:51:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.8/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.8/lib/action_dispatch/middleware/head.rb:14:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.2/lib/rack/methodoverride.rb:24:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.8/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.8/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.8/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.8/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/var/lib/gems/1.8/gems/activerecord-3.0.8/lib/active_record/query_cache.rb:32:in `call'
+/var/lib/gems/1.8/gems/activerecord-3.0.8/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/var/lib/gems/1.8/gems/activerecord-3.0.8/lib/active_record/query_cache.rb:12:in `cache'
+/var/lib/gems/1.8/gems/activerecord-3.0.8/lib/active_record/query_cache.rb:31:in `call'
+/var/lib/gems/1.8/gems/activerecord-3.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.8/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/var/lib/gems/1.8/gems/activesupport-3.0.8/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+/var/lib/gems/1.8/gems/actionpack-3.0.8/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.2/lib/rack/sendfile.rb:107:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.8/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.8/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/var/lib/gems/1.8/gems/railties-3.0.8/lib/rails/rack/logger.rb:13:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.2/lib/rack/runtime.rb:17:in `call'
+/var/lib/gems/1.8/gems/activesupport-3.0.8/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.2/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.2/lib/rack/lock.rb:11:in `synchronize'
+/var/lib/gems/1.8/gems/rack-1.2.2/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.8/lib/action_dispatch/middleware/static.rb:30:in `call'
+/var/lib/gems/1.8/gems/railties-3.0.8/lib/rails/application.rb:168:in `call'
+/var/lib/gems/1.8/gems/railties-3.0.8/lib/rails/application.rb:77:in `send'
+/var/lib/gems/1.8/gems/railties-3.0.8/lib/rails/application.rb:77:in `method_missing'
+/var/lib/gems/1.8/gems/railties-3.0.8/lib/rails/rack/log_tailer.rb:14:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.2/lib/rack/content_length.rb:13:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.2/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/var/lib/gems/1.8/gems/rack-1.2.2/lib/rack/handler/webrick.rb:13:in `run'
+/var/lib/gems/1.8/gems/rack-1.2.2/lib/rack/server.rb:213:in `start'
+/var/lib/gems/1.8/gems/railties-3.0.8/lib/rails/commands/server.rb:65:in `start'
+/var/lib/gems/1.8/gems/railties-3.0.8/lib/rails/commands.rb:30
+/var/lib/gems/1.8/gems/railties-3.0.8/lib/rails/commands.rb:27:in `tap'
+/var/lib/gems/1.8/gems/railties-3.0.8/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: blueprint.\A               Load path: /home/dantheta/rails_projects/sample_application/public/stylesheets/sass\A         on line 1 of /home/dantheta/rails_projects/sample_application/public/stylesheets/sass/print.scss\A \A 1: @import \"blueprint\";\A 2: \A 3: //Recommended Blueprint configuration with scoping and semantic layout:\A 4: body.bp {\A 5:   @include blueprint-print(true); }"; }

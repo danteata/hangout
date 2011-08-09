@@ -1,15 +1,11 @@
-%h2 User Hub
 #left_side
-  %h1
-    #gravatar
-      = gravatar_for (@user)
-      %br/
-      = @user.name
-    = @spec.full_name
+  #gravatar
+    = gravatar_for (@user)
     %br/
-    =@spec.occupation
-    %br/
-    =@spec.birthday
+  = @spec.full_name
+  %br/
+  =@spec.occupation
+  %br/
   %hr/
   = link_to profile_url(@user), profile_path(@user)
   %br/
@@ -84,7 +80,7 @@
     - unless hide_edit_links?
       %span.edit_link
         = link_to "edit", edit_network_path(@user)
-        
+
   %fieldset
     %legend
       User Spec

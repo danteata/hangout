@@ -19,10 +19,10 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :domain               => 'www.meltwater.org',
-  :user_name            => 'dan.theta',
-  :password             => '1251987',
-  :authentication       => :login,
+  :domain               => 'localhost:3000',
+  :user_name            => 'danteata',
+  :password             => '12051987',
+  :authentication       => :plain,
   :enable_starttls_auto => true
 }
 

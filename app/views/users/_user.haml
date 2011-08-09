@@ -1,7 +1,7 @@
 %tr
 
   %td
-    = gravatar_for user, :side => 30
+    = link_to (gravatar_for user, :side => 60), profile_path(user)
     %br/
     = link_to user.name, profile_path(user)
 

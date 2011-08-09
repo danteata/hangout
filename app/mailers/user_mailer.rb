@@ -26,10 +26,11 @@ class UserMailer < ActionMailer::Base
   #method to render the corresponding message
   #params user, the sender, recipient, the receiver
   #message, the message object which component will be rendered in view
-  def message(user, recipient, message)
+  def correspond_mail(user, recipient, message)
     @recipient = recipient
     @user = user
     @message = message
-    mail(:to =>recipient, :subject => message.subject)
+    #mail(:to =>recipient, :subject => message.subject)
+    mail(:to =>"dantheta@yahoo.co.uk", :subject => "just testing it out")
   end
 end

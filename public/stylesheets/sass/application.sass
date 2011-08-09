@@ -1,3 +1,9 @@
+@import 'compass'
+@import 'blueprint'
+//@import 'compass/utilities'
+//@import 'compass/reset'
+$blueprint-liquid-container-min-width: 450px
+@import 'blueprint/liquid'
 
 =shadow
   :-moz-box-shadow white 0 4px 8px
@@ -11,14 +17,17 @@
   :border-radius 10px
 
 body
+  //+blueprint
   :background url("/images/bg_image_here.png") #15405C no-repeat
   //:background = url("/images/bg_image_here.png") !bodycolor no-repeat
 
   fieldset
     :margin-top 10px
     //:background #15405C
-    :background #73B2DD
+    //:background #73B2DD
+    :background white
     :color black
+    //:text-align center
 
   legend
     :background black
@@ -42,12 +51,17 @@ body
       :color green
 
   .container
+    //+blueprint
+    +showgrid
     :border 6px solid black
-    :width 85%
+    //:width 85%
     :margin auto
     :background white
     +shadow
     +rounded
+    //+column(20)
+    +container
+    //+showgrid
 
     header
       :background black
@@ -82,9 +96,9 @@ body
         #nav_container
           :float right
           :margin-right 12px
-          :margin-top 9px
+          :margin-top 25px
           :width 60%
-          :height 40px
+          :height 25px
           :background steelblue
           +rounded
 
@@ -94,6 +108,7 @@ body
             :border-radius 8px
 
           nav
+            //:float right
             :height 31px
             :width 100%
             :background white
@@ -101,7 +116,7 @@ body
 
             ul
               li
-                :list-style-type none
+                +no-bullet //compass mixin 
                 :display inline-block
                 :padding 0.2em
 
@@ -111,7 +126,7 @@ body
 
     #inner_content
       :clear both
-      :padding 2px
+      :padding 0px
       :background #73B2DD
       //:background white
       :margin 10px
@@ -119,13 +134,15 @@ body
 
       section
         :clear both
-        //:background white
-        :background #73B2DD
+        :background white
+        //:background #73B2DD
         :width 95%
         :min-height 450px
         :margin auto
         :margin-bottom 1px
+        :margin-top 2px
         :padding 20px
+        :padding-top 2px
         +rounded
 
         #sign_up_button
@@ -142,13 +159,14 @@ body
           +rounded
 
         #left_side
-          :background white
+          :background #15405C
+          :color white
           :border 1px solid black
-          :width 23%
+          //:width 23%
+          +column(5)
           :padding 10px
-          :height 400px
-          :float left
           :margin-bottom 20px
+          :border-radius 10px 0px 0px 10px
 
           h1
             #gravatar
@@ -158,27 +176,33 @@ body
 
               img
                 :margin auto
-                :margin-auto 10px
+                :text-align center
         #middle_side
-          //:background white
           :color white
           :background #15405C
           :width 45%
-          :height 680px
+          +column(13)
+          //:height 680px
           :border 1px solid black
-          :float left
-          :margin-left 3%
+          //:margin-left 28%
+          :margin-top 0px
           :padding 5px
           +rounded
 
         #right_side
-          :background white
-          :width 20%
-          :height 250px
-          :float left
+          :background #15405C
+          :color white
           :border 1px solid black
-          :margin-left 3%
+          //:width 20%
+          +column(4)
+          :height 250px
+          //:float left
+
+          :border 1px solid black
+          //:margin-left 80%
           :padding 5px
-          
+          :border-radius 0px 10px 10px 0px
+
     footer
+    
 

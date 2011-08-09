@@ -1,13 +1,12 @@
+
 %fieldset
   %legend
     = @title
 
-
-  = form_for (:message, :url=>{:controller=>"emails", :action=>"correspond",
+  = form_for (@message, :url=>{:controller=>"emails", :action=>"correspond",
     :id=>@recipient})  do |f|
 
-    -#= render "shared/error_messages", :object => f.object
-    -#= error_messages_for :message
+    = render "shared/error_messages", :object => f.object
 
     = f.label :subject
     %br/

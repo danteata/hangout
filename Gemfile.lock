@@ -31,6 +31,8 @@ GEM
     annotate (2.4.0)
     arel (2.0.10)
     builder (2.1.2)
+    compass (0.10.6)
+      haml (>= 3.0.4)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -104,6 +106,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  compass
   factory_girl_rails
   faker
   formtastic (~> 1.2.0)

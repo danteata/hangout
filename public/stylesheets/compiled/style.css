@@ -1,0 +1,308 @@
+/* line 6, ../sass/style.sass */
+body {
+  /*background:#cff; */
+  background: url("/images/bg_image_here.png") #15405c no-repeat;
+}
+
+/* line 10, ../sass/style.sass */
+.round {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* line 15, ../sass/style.sass */
+#round_special {
+  -webkit-border-radius: 19px;
+  -moz-border-radius: 18px;
+  border-radius: 8px;
+}
+
+/* line 20, ../sass/style.sass */
+.container {
+  border: 6px solid black;
+  width: 85%;
+  margin: auto;
+  background: white;
+  /*backround: steelblue; */
+  -moz-box-shadow: white 0 4px 8px;
+  -webkit-box-shadow: white 0 4px 8px;
+  -khtml-box-shadow: white 0 4px 8px;
+  box-shadow: white 0 4px 8px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* line 32, ../sass/style.sass */
+header {
+  background: black;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* line 36, ../sass/style.sass */
+#logo_image {
+  /*margin-left:10px */
+}
+
+/* line 39, ../sass/style.sass */
+.network_logos {
+  float: right;
+  margin-top: 8px;
+  margin-right: 8px;
+}
+
+/* line 44, ../sass/style.sass */
+#curly_black {
+  position: absolute;
+  background: black;
+  height: 111px;
+  float: right;
+  width: 15px;
+  top: 9px;
+  left: 300px;
+  margin-right: 0px;
+}
+
+/* line 54, ../sass/style.sass */
+#white_background {
+  background: white;
+  width: 5px;
+  height: 10px;
+  float: right;
+  margin-top: 101px;
+}
+
+/* line 61, ../sass/style.sass */
+#white_space {
+  background: white;
+  height: 60px;
+  margin-top: 65px;
+  float: right;
+  width: 65%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* line 68, ../sass/style.sass */
+#nav_container {
+  /*margin:auto; */
+  float: right;
+  margin-right: 12px;
+  margin-top: 9px;
+  /*margin-top:-40px; */
+  /*padding-top:2px; */
+  width: 60%;
+  height: 40px;
+  background: steelblue;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* line 80, ../sass/style.sass */
+section {
+  /*background: steelblue; */
+  clear: both;
+  background: white;
+  width: 95%;
+  min-height: 450px;
+  margin: auto;
+  margin-bottom: 1px;
+  margin-top: 0.4%;
+  padding: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* line 91, ../sass/style.sass */
+#sign_up_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 190px;
+  color: white;
+  background: #006400;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+}
+
+/* line 103, ../sass/style.sass */
+a {
+  color: #0099cc;
+  text-decoration: none;
+}
+/* line 106, ../sass/style.sass */
+a:hover {
+  color: #006699;
+  text-decoration: underline;
+}
+/* line 109, ../sass/style.sass */
+a:visited {
+  color: #006699;
+}
+/* line 111, ../sass/style.sass */
+a:active {
+  color: green;
+}
+
+/* line 114, ../sass/style.sass */
+#search_space {
+  position: absolute;
+  top: 30px;
+  right: 200px;
+  background: white;
+  height: 20px;
+  width: 150px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* line 123, ../sass/style.sass */
+#inner_content {
+  /*background:blue; */
+  clear: both;
+  padding: 2px;
+  /*background:#CBEFB3; */
+  background: #73b2dd;
+  /*padding-bottom:20px; */
+  margin: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* line 133, ../sass/style.sass */
+#gravatar {
+  margin: auto;
+  border: 1px solid black;
+  background: gray;
+}
+/* line 137, ../sass/style.sass */
+#gravatar img {
+  margin: auto;
+  margin-left: 10px;
+}
+
+/* line 141, ../sass/style.sass */
+#left_side {
+  background: white;
+  border: 1px solid black;
+  width: 23%;
+  padding: 10px;
+  /*height:auto; */
+  height: 400px;
+  float: left;
+  /*margin-left:30%; */
+  margin-bottom: 20px;
+}
+
+/* line 152, ../sass/style.sass */
+#middle_side {
+  background: white;
+  width: 45%;
+  height: 250px;
+  border: 1px solid black;
+  float: left;
+  margin-left: 3%;
+  /*margin-top:-22px; */
+}
+
+/* line 161, ../sass/style.sass */
+#right_side {
+  background: white;
+  width: 20%;
+  float: left;
+  border: 1px solid black;
+  margin-left: 3%;
+  height: 250px;
+}
+
+/* line 169, ../sass/style.sass */
+nav {
+  /*float:right; */
+  /*margin:auto; */
+  /*white-space:nowrap; */
+  height: 31px;
+  width: 100%;
+  /*margin:auto; */
+  background: white;
+  /*clear:both; */
+  margin-top: -16px;
+}
+/* line 179, ../sass/style.sass */
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em;
+}
+/* line 183, ../sass/style.sass */
+nav ul li a {
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+/* line 187, ../sass/style.sass */
+.field, .actions {
+  margin-bottom: 10px;
+}
+
+/* line 190, ../sass/style.sass */
+.field_with_errors {
+  background-color: red;
+  display: table;
+}
+/* line 193, ../sass/style.sass */
+.field_with_errors label {
+  color: white;
+}
+/* line 195, ../sass/style.sass */
+.field_with_errors input {
+  border: 1px solid red;
+}
+
+/* line 198, ../sass/style.sass */
+#error_explanation {
+  background-color: #f0f0f0;
+  border: 2px solid red;
+  width: 400px;
+}
+/* line 202, ../sass/style.sass */
+#error_explanation p {
+  color: #333333;
+}
+/* line 204, ../sass/style.sass */
+#error_explanation h2 {
+  color: white;
+  font-size: 13px;
+  background-color: red;
+}
+/* line 208, ../sass/style.sass */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 212, ../sass/style.sass */
+ul.users {
+  margin-top: 1em;
+}
+
+/* line 215, ../sass/style.sass */
+.users li {
+  list-style: none;
+}
+
+/* line 218, ../sass/style.sass */
+footer {
+  width: 50%;
+  color: black;
+  margin: auto;
+}

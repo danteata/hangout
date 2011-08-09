@@ -21,7 +21,7 @@ class FaqsController < ApplicationController
   def create
     @user.faq ||=Faq.new
     if @user.faq.update_attributes(params[:faq])
-      flash[:notice] = "changes saved successfully"
+      flash[:success] = "changes saved successfully"
       redirect_to @user
     else
       @title = "Edit user"
@@ -33,12 +33,11 @@ class FaqsController < ApplicationController
     @user = User.find(params[:id])
     @user.faq ||= Faq.new(:user_id => @user.id)
     if @user.faq.update_attributes(params[:faq])
-      flash[:notice] = "Changes saved successfully"
+      flash[:success] = "Changes saved successfully"
       redirect_to @user
     else
       @title = "Edit faq"
       render 'edit'
     end
   end
-
 end

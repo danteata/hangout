@@ -1,4 +1,6 @@
-class Message < ActiveRecord::Base
+class Message 
+  include ActiveModel::Validations
+  include ActiveModel::Conversion
   attr_accessor :subject, :body
 
   validates :subject, :presence => true
@@ -8,4 +10,13 @@ class Message < ActiveRecord::Base
     @subject = params[:subject]
     @body = params[:body]
   end
+
+  def persisted?
+    false
+  end
+
+  #def self.validate
+    #return flash[:notice] = "Subject or message can't be blank" if @subject == " " or @message == " "
+    #@subject != nil or ""
+  #end
 end

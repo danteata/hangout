@@ -7,10 +7,10 @@ class EmailsController < ApplicationController
       user = User.find_by_email(email)
       if user
         UserMailer.reminder(user).deliver
-        flash[:notice] = "Login information sent to #{email}"
+        flash[:success] = "Login information sent to #{email}"
         redirect_to root_path
       else
-        flash[:notice] = "There is no user the email #{email}"
+        flash[:error] = "There is no user the email #{email}"
       end
     end
   end
@@ -19,12 +19,15 @@ class EmailsController < ApplicationController
     @user = current_user
     @recipient = User.find(params[:id])
     @title = "Email #{@recipient.name}"
+    @message ||= Message.new({:subject=>"", :body=>""})
     if param_posted?(:message)
-      @message = Message.new(params[:message])
+      #if @message.update_attributes(params[:message])
+      @message.subject = params[:message][:subject]
+      @message.body = params[:message][:body]
       if @message.valid?
-        UserMailer.message(@user, @recipient, @message).deliver
-        flash[:notice] = "Email sent"
-        redirect_to profile_for(@recipient)
+        UserMailer.correspond_mail(@recipient, @message, @user).deliver
+        flash[:success] = "Email sent"
+        redirect_to profile_path(@recipient)
       end
     end
 
