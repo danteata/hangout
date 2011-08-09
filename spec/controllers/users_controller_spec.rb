@@ -43,9 +43,16 @@ describe UsersController do
       it "should have an element for each user" do
         get :index
         @users[0..2].each do |user|
-          response.should have_selector("li", :content => user.name)
+          response.should have_selector("td a", :content => user.name)
         end
 
+      end
+
+      it "should have a link to each user's profile" do
+        get :index
+        @users[0..2].each do |user|
+          response.should have_selector("a" , :href => profile_path(user))
+        end
       end
 
       it "should paginate users" do
@@ -140,7 +147,7 @@ describe UsersController do
 
     it "should have the user's name" do
       get :show, :id=>@user
-      response.should have_selector("h1", :content=> @user.name)
+      response.should have_selector("td", :content=> @user.name)
 
     end
 

@@ -1,9 +1,9 @@
 .sidebar_box
-  %h2
-    - unless hide_edit_links?
-      %span.edit_link
-        = link_to "(edit)", edit_faq_path(@user)
-    %span.header
+  %fieldset
+    %legend
       = sidebar_box.humanize
-  .faq_answer
-    = sanitize @faq[sidebar_box]
+    .faq_answer
+      = sanitize @faq[sidebar_box]
+      - unless hide_edit_links?
+        %span.edit_link
+          = link_to "(edit)", edit_faq_path(@user)

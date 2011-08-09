@@ -1,6 +1,7 @@
 class NetworksController < ApplicationController
   def index
-    redirect_to users_path
+    @title = "networks"
+    #redirect_to users_path
   end
 
   def edit

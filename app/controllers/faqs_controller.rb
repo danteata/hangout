@@ -1,6 +1,6 @@
 class FaqsController < ApplicationController
   def index
-    redirect_to users_path
+    #redirect_to users_path
   end
 
   def new
