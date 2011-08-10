@@ -1,11 +1,14 @@
 SampleApplication::Application.routes.draw do
 
-  get "networks/index"
+  get "chats/index"
+  get "chats/send_data"
 
+  get "networks/index"
   get "networks/edit"
 
   get "emails/remind"
   get "emails/correspond"
+
   get "friendships/initiate"
   get "friendships/accept"
   get "friendships/decline"
@@ -13,7 +16,6 @@ SampleApplication::Application.routes.draw do
   get "friendships/delete"
 
   get "faqs/index"
-
   get "faqs/edit"
 
   #get "specs/new"
@@ -24,7 +26,12 @@ SampleApplication::Application.routes.draw do
   #get "profiles/index"
 
   #get "profiles/show"
-  resources :emails
+  resources :emails do
+    member do
+      get "correspond" #enable using rout helper 'correspond_email_path' 
+    end
+  end
+
   resources :faqs
   resources :specs
   resources :users
@@ -32,6 +39,7 @@ SampleApplication::Application.routes.draw do
   resources :profiles
   resources :friendships
   resources :networks
+  resources :chats
 
   match "/signup", :to=> "users#new"
   match "/signin", :to => "sessions#new"
@@ -46,6 +54,8 @@ SampleApplication::Application.routes.draw do
   match "/friendships/initiate", :to => "friendships#initiate"
   match "/friendships/accept", :to => "friendships#accept"
   match "/friendships/delete", :to => "friendships#delete"
+  #match "emails/correspond/:id", :as => "correspond"
+  match "/chats/send_data", :to => "chats#send_data"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

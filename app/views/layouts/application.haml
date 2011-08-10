@@ -1,11 +1,13 @@
 !!!Strict
 %html
   %head
+    = juggernaut
     %title
       = title #render the title from the title helper 
     = csrf_meta_tag
     = render "layouts/stylesheets"
     = javascript_include_tag :defaults
+    = javascript_include_tag "prototype", :juggernaut
   %body
     .container
       = render "layouts/nav"

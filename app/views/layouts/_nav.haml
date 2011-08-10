@@ -2,7 +2,7 @@
   - logo_image = image_tag("hangoutt.png", :alt=>"site logo", :id=>"logo_image")
   = link_to logo_image, root_path
   #search_space
-    =form_tag(users_path, :method => "get") do
+    =form_tag(users_path, :method => "post") do
       %label Search
       = text_field_tag "term", params[:term]
       = submit_tag "go"
@@ -14,8 +14,9 @@
         -#"www.twitter.com/#{current_user.network.twitter}" if current_user.network.twitter
       -#= link_to image_tag("icon_linkedin.png",:alt=>"linkedin", :class=>"network_logos", :id=>"linkedin_logo"),
         -#"www.linkedin.com/#{current_user.network.linkedin}" if current_user.network.linkedin
-      -#= link_to image_tag("icon_youtube.png",:alt=>"youtube", :class=>"network_logos", :id=>"youtube_logo"),
-        -#"www.youtube.com/#{current_user.network.youtube}" if current_user.network.youtube
+      
+      -#= link_to_if(current_user.network.youtube, image_tag("icon_youtube.png",:alt=>"youtube", :class=>"network_logos", :id=>"youtube_logo"),
+        -#{"#{current_user.network.youtube}", :host=>"www.youtube.com"})
     -#- else
     %a
       %img.network_logos#facebook_logo{:src => "/images/icon_facebook.png", :alt => "facebook link"}

@@ -1,0 +1,9 @@
+%h1
+  Chats#index
+%p
+  Find me in app/views/chats/index.haml
+
+= form_tag(:url => {:action => :send_data},
+    :complete => "$('chat_input', '', {:size => 20, :id => 'chat_input'})")
+-#= submit_tag "Add"
+-#%uli#chat_data

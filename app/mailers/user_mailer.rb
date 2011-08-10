@@ -30,7 +30,7 @@ class UserMailer < ActionMailer::Base
     @recipient = recipient
     @user = user
     @message = message
-    #mail(:to =>recipient, :subject => message.subject)
-    mail(:to =>"dantheta@yahoo.co.uk", :subject => "just testing it out")
+    mail(:to =>recipient.email, :subject => message.subject)
+    #mail(:to =>"dantheta@yahoo.co.uk", :subject => "just testing it out")
   end
 end
