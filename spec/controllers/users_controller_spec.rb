@@ -128,6 +128,7 @@ describe UsersController do
   describe "GET show" do
     before(:each) do
       @user = Factory(:user)
+      test_sign_in(@user) #user must be signed in before viewing profile 
     end
 
     it "should be successful" do

@@ -7,25 +7,19 @@
       = text_field_tag "term", params[:term]
       = submit_tag "go"
   #white_space
-    -#- if signed_in?
-      -#= link_to image_tag("icon_facebook.png",:alt=>"facebook", :class=>"network_logos", :id=>"facebook_logo"),
-        -#:host => "www.facebook.com/#{current_user.network.facebook}" if current_user.network.facebook
-      -#= link_to image_tag("icon_twitter.png",:alt=>"twitter", :class=>"network_logos", :id=>"twitter_logo"),
-        -#"www.twitter.com/#{current_user.network.twitter}" if current_user.network.twitter
-      -#= link_to image_tag("icon_linkedin.png",:alt=>"linkedin", :class=>"network_logos", :id=>"linkedin_logo"),
-        -#"www.linkedin.com/#{current_user.network.linkedin}" if current_user.network.linkedin
-      
-      -#= link_to_if(current_user.network.youtube, image_tag("icon_youtube.png",:alt=>"youtube", :class=>"network_logos", :id=>"youtube_logo"),
-        -#{"#{current_user.network.youtube}", :host=>"www.youtube.com"})
-    -#- else
-    %a
-      %img.network_logos#facebook_logo{:src => "/images/icon_facebook.png", :alt => "facebook link"}
-    %a
-      %img.network_logos#twitter_logo{:src => "/images/icon_twitter.png", :alt => "twitter link"}
-    %a
-      %img.network_logos#linkedin_logo{:src => "/images/icon_linkedin.png", :alt => "linkedIn link"}
-    %a
-      %img.network_logos#youtube_logo{:src => "/images/icon_youtube.png", :alt => "youtube link"}
+    - if signed_in?
+      = link_to_if(facebook_profile?, image_tag("icon_facebook.png",:alt=>"facebook", :class=>"network_logos", :id=>"facebook"),
+        "/#{facebook_profile}", {:host=>"www.facebook.com"})
+
+      = link_to_if(twitter_profile?, image_tag("icon_twitter.png",:alt=>"twitter", :class=>"network_logos", :id=>"twitter"),
+        "/#{twitter_profile}", {:host=>"www.twitter.com"})
+
+      = link_to_if(linkedin_profile?, image_tag("icon_linkedin.png",:alt=>"linkedin", :class=>"network_logos", :id=>"linkedin"),
+        "/#{linkedin_profile}", {:host=>"www.linkedin.com"})
+
+      = link_to_if(youtube_profile?, image_tag("icon_youtube.png",:alt=>"youtube", :class=>"network_logos", :id=>"youtube_logo"),
+        "/#{youtube_profile}", {:host=>"www.youtube.com"})
+
     #nav_container
       %nav#round_special
         %ul

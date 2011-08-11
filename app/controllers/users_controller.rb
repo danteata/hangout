@@ -76,7 +76,8 @@ class UsersController < ApplicationController
       #redirect_to (root_path) unless current_user?(@user)
       unless current_user?(@user)
         flash[:error] = "The requested page is unauthorized"
-        redirect_to(user_path(current_user))
+        #redirect_to(user_path(current_user))
+        redirect_to root_path
       end
     end
 
