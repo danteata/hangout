@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    #authenticates and returns the authenticated user
     user = User.authenticate(params[:session][:email],
                              params[:session][:password])
     if user.nil? # if the user is not authenticated

@@ -50,6 +50,7 @@ class User < ActiveRecord::Base
     return user if user.has_password?(submitted_password)
   end
 
+  #verifies user with id param has same salt as salt in the cookie
   def self.authenticate_with_salt(id, cookie_salt)
     user = find_by_id(id)
     (user && user.salt == cookie_salt) ? user : nil

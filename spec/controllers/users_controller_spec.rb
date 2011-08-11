@@ -82,30 +82,30 @@ describe UsersController do
       end
 
       it "should require matching users for 'edit'" do
-        #get :edit, :id => @user
-        #response.should redirect_to(root_path)
-        pending
+        get :edit, :id => @user
+        response.should redirect_to(root_path)
+        #pending
       end
 
       it "should require matching users for 'update'" do
-        #put :update, :id => @user, :user => {}
-        #response.should redirect_to(root_path)
-        pending
+        put :update, :id => @user, :user => {}
+        response.should redirect_to(root_path)
+        #pending
       end
     end
 
     describe "for non-signed-in users" do
 
       it "should deny access to 'edit'" do
-        #get :edit, :id => @user
-        #response.should redirect_to(signin_path)
-        pending
+        get :edit, :id => @user
+        response.should redirect_to(signin_path)
+        #pending
       end
 
       it "should deny access to 'update'" do
-        #put :update, :id => @user, :user => {}
-        #response.should redirect_to(signin_path)
-        pending
+        put :update, :id => @user, :user => {}
+        response.should redirect_to(signin_path)
+        #pending
       end
     end
 
