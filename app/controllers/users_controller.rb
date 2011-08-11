@@ -1,14 +1,16 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:index,:show, :edit, :update]
-  before_filter :correct_user, :only => [:show, :edit, :update]
+  before_filter :authenticate, :only => [:index,:show, :edit, :update] #non members can only sign up to platform 
+  before_filter :correct_user, :only => [:show, :edit, :update] #member actions require current_user 
   before_filter :admin_user, :only=> :destroy
 
+  #displays a view of all users of the platform
   def index
     @title = "All users"
     #@users = User.all
     @users = User.all.paginate :page => params[:page], :per_page => 10 #implements pagination with will_paginate gem 
   end
 
+  #renders a new view to sign up new users
   def new
     @title="Sign Up"
    @user = User.new
@@ -28,8 +30,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+
     if @user.save
-      sign_in @user
+      sign_in @user #assigns @user tp current_user 
       flash[:success] = "Welcome to the network, #{@user.name}"
       redirect_to @user
     else
@@ -37,6 +40,7 @@ class UsersController < ApplicationController
       @title = "Sign up"
       render 'new'
     end
+
   end
 
   def edit

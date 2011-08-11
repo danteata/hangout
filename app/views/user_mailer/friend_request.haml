@@ -6,7 +6,7 @@ You have a friend request from
 =@user.name
 %br/
 View
-= link_to @user, user_path(@user, :host=>"locahost:3000")
+= link_to user_path(@user, :host=>"locahost:3000"), user_path(@user, :host=>"locahost:3000")
 %br/
 Accept:
 =@accept_url

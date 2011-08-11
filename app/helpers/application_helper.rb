@@ -72,4 +72,6 @@ module ApplicationHelper
   def youtube_network_profile(user)
     (user.network.youtube.nil?) ? "" : user.network.youtube
   end
+
+
 end

@@ -7,10 +7,10 @@
 
 To reply to this mail, go to:
 %br/
-= form_tag(correspond_email_url(@recipient, :host=>"localhost:3000"), :method =>"get") do
+= form_tag(correspond_email_url(@sender, :host=>"localhost:3000"), :method =>"get") do
   = hidden_field_tag "original", @message.body
   = hidden_field_tag "original_subject", @message.subject
   = submit_tag "Reply"
 %br/
 
-= link_to correspond_email_url(@recipient, :host=> "localhost:3000"), correspond_email_url(@recipient, :host=> "localhost:3000")
+= link_to correspond_email_url(@sender, :host=> "localhost:3000"), correspond_email_url(@sender, :host=> "localhost:3000")

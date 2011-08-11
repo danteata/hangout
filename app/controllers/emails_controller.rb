@@ -1,5 +1,7 @@
 class EmailsController < ApplicationController
+  before_filter :authenticate, :except => "remind"
 
+  #displays reminder form and sends user's login info via mail
   def remind
     @title = "Password Reminder"
     if param_posted?(:user)
@@ -15,6 +17,7 @@ class EmailsController < ApplicationController
     end
   end
 
+  #display view for user to write message and send to other members
   def correspond
     @user = current_user
     @recipient = User.find(params[:id])

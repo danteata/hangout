@@ -1,4 +1,6 @@
 class FaqsController < ApplicationController
+  before_filter :authenticate
+  before_filter :correct_user, :except => [:index]
   def index
     #redirect_to users_path
   end

@@ -1,4 +1,6 @@
 class NetworksController < ApplicationController
+  before_filter :authenticate
+  before_filter :correct_user, :except =>[:index]
 
   def index
     @title = "networks"

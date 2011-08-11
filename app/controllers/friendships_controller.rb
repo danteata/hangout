@@ -1,12 +1,10 @@
 class FriendshipsController < ApplicationController
-  before_filter :setup_friends
+  before_filter :authenticate, :setup_friends
 
   def initiate
-    #@user = current_user
-    #@friend = User.find(params[:id])
     Friendship.request(@user, @friend)
-    #UserMailer.friend_request(@user, @friend).deliver
-    flash[:success] = "Friend request sent"
+    UserMailer.friend_request(@user, @friend).deliver
+    flash[:success] = "Friend request sent to #{@friend.email}"
     redirect_to profile_path(@friend)
 
   end
@@ -53,6 +51,7 @@ class FriendshipsController < ApplicationController
 
   private 
 
+  #initialize current user and friend
   def setup_friends
     @user = current_user
     @friend = User.find(params[:id])

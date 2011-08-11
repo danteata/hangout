@@ -1,4 +1,7 @@
 class SpecsController < ApplicationController
+  before_filter :authenticate 
+  before_filter :correct_user, :except => [:index]
+
   def new
     @title = "Create spec"
     @user = User.find(params[:id])

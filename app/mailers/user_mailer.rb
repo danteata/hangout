@@ -16,10 +16,10 @@ class UserMailer < ActionMailer::Base
 
   def friend_request(user, friend)
     @user = user
-    @pending_friend = friend
+    @friend = friend
     @accept_url = url_for(:controller => "friendships", :action =>"accept",  :id=>@user.id, :host =>"localhost:3000")
     @decline_url = url_for(:controller =>"friendships",:action => "decline", :id => @user.id, :host =>"localhost:3000")
-    mail(:to=>user.email,
+    mail(:to=>@friend.email,
         :subject=>"Request for your friendship")
   end
 
@@ -28,7 +28,7 @@ class UserMailer < ActionMailer::Base
   #message, the message object which component will be rendered in view
   def correspond_mail(user, recipient, message)
     @recipient = recipient
-    @user = user
+    @sender = user
     @message = message
     mail(:to =>recipient.email, :subject => message.subject)
     #mail(:to =>"dantheta@yahoo.co.uk", :subject => "just testing it out")

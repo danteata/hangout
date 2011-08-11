@@ -3,6 +3,11 @@ require 'spec_helper'
 describe FaqsController do
   render_views
 
+  before(:each) do
+    @user = Factory(:user)
+    test_sign_in(@user)
+  end
+
   describe "GET 'index'" do
     it "should be successful" do
       get 'index'
@@ -12,7 +17,6 @@ describe FaqsController do
 
   describe "GET 'edit'" do
     it "should be successful" do
-      @user = test_sign_in(Factory(:user))
       get 'edit', :id => @user
       response.should be_success
     end

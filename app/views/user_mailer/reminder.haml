@@ -1,8 +1,9 @@
 %p
-  Hello,
+  Hello #{@user.name},
+%br/
 
 Heard you've lost your login information.
-
+%br/
 Well this is it:
 %br/
 Screen name:
@@ -11,6 +12,9 @@ Screen name:
 Password:
 = @user.encrypted_password
 %br/
-Edit Profile: 
+Follow the link below to reset your password:
+%br/
 = edit_user_path(@user, :host=>'localhost:3000')
-The MEST hangout team haml edition
+%br/
+%br/
+***The MEST hangout team*** 
