@@ -31,8 +31,14 @@ module SessionsHelper
   end
 
   def deny_access
+    store_location
     flash[:notice] = "Please sign in to access this page"
     redirect_to signin_path
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:return_to] || default)
+    clear_return_to
   end
 
   #all methods under private are exactly so..lol
@@ -45,4 +51,13 @@ module SessionsHelper
     def remember_token
       cookies.signed[:remember_token] || [nil, nil]
     end
+
+    def store_location
+      session[:return_to] = request.fullpath
+    end
+
+    def clear_return_to
+      session[:return_to] = nil
+    end
+
 end

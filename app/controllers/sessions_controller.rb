@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     else
 #code for user sign in and redirection here! 
       sign_in user
-      redirect_to user
+      redirect_back_or user_path(user)
     end
   end
 
