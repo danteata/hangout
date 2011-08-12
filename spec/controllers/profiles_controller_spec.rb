@@ -3,6 +3,11 @@ require 'spec_helper'
 describe ProfilesController do
   render_views
 
+  before(:each) do
+    @user = Factory(:user)
+    test_sign_in(@user)
+  end
+
   describe "GET 'index'" do
     it "should be successful" do
       get 'index'
@@ -11,9 +16,6 @@ describe ProfilesController do
   end
 
   describe "GET 'show'" do
-    before(:each) do
-      @user = Factory(:user)
-    end
 
     it "should be successful" do
       get 'show', :id =>@user
