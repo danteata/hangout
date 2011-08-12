@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :authenticate
-  before_filter :check_profile_privacy, :only =>[:show] #checks if user's profile can be viewed by requesting user 
+  #before_filter :check_profile_privacy, :only =>[:show] #checks if user's profile can be viewed by requesting user 
 
   def index
   end
