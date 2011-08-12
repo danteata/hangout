@@ -1,6 +1,7 @@
 class FaqsController < ApplicationController
   before_filter :authenticate
-  before_filter :correct_user, :except => [:index]
+  before_filter :correct_user, :except => [:index, :update, :create]
+
   def index
     #redirect_to users_path
   end
@@ -33,8 +34,8 @@ class FaqsController < ApplicationController
   end
   
   def update
-    #@user = User.find(params[:id])
-    @user = current_user
+    @user = User.find(params[:id])
+    #@user = current_user
     @user.faq ||= Faq.new(:user_id => @user.id)
     if @user.faq.update_attributes(params[:faq])
       flash[:success] = "Changes saved successfully"

@@ -1,6 +1,6 @@
 class PreferencesController < ApplicationController
   before_filter :authenticate
-  before_filter :correct_user
+  before_filter :correct_user, :except=>[:update]
 
   def edit
     @user = User.find(params[:id]) #already defined in correct_user 

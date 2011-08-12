@@ -1,6 +1,6 @@
 class SpecsController < ApplicationController
   before_filter :authenticate 
-  before_filter :correct_user, :except => [:index]
+  before_filter :correct_user, :except => [:index, :update]
 
   def new
     @title = "Create spec"
@@ -47,11 +47,12 @@ class SpecsController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
     #@user.spec ||=Spec.new(:user_id => @user.id)
+    @user = current_user
     @user.spec ||= Spec.new
    if  @user.spec.update_attributes(params[:spec])
-    flash[:success] = "Changes saved"
+    flash[:success] = "Specs updated successfully"
     redirect_to @user
    else
      @title = "Edit user"
