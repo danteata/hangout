@@ -14,6 +14,7 @@ class PreferencesController < ApplicationController
 
   def update
     #@user = User.find(params[:id])
+    @user = current_user
     @preference = @user.preference ||= Preference.new
     if @preference.update_attributes(params[:preference])
       flash[:success] = "Preferences saved successfully"

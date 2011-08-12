@@ -9,8 +9,12 @@
     = render 'shared/error_messages', :object =>f.object
     .field
       = f.label :profile_view
+      %br
+      = radio_button :preference, :profile_view, "all"
+      all
+      = radio_button :preference, :profile_view, "friends"
+      friends
       %br 
-      = f.text_field :profile_view
     .actions
       = f.submit "Edit preference"
 

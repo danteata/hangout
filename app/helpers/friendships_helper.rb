@@ -1,4 +1,5 @@
 module FriendshipsHelper
+
   #return an appropriate friendship status message
   def friendship_status(user, friend)
     friendship = Friendship.find_by_user_id_and_friend_id(user, friend)
@@ -14,8 +15,10 @@ module FriendshipsHelper
 
   end
 
+  #displays which action to take depending on friendship status
   def friendship_action(user, friend)
-    return "me" if User.is_same?(user, friend)
+    #return "me" if User.is_same?(user, friend)
+    return "me" if current_user?(friend)
     friendship = Friendship.find_by_user_id_and_friend_id(user, friend)
     return link_to "Add friend", {:controller =>"friendships",
       :action =>"initiate", :id => friend.id},
@@ -26,6 +29,19 @@ module FriendshipsHelper
       "awaiting ur approval"
     when 'pending'
       "sent request"
+    end
+  end
+
+  #returns an array of all mutual friends of current user and user whose profile he is viewing
+  def mutual_friends(user)
+    user.friends.each do |friend|
+      mutual = []
+      #gathering mutual friends
+      unless current_user.friends.empty? or !current_user.friends.include?(friend) 
+        mutual << friend
+      end
+
+      return mutual
     end
   end
 end

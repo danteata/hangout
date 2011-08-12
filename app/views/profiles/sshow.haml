@@ -1,25 +1,23 @@
 #left_side
-  #gravatar
-    = gravatar_for (@user, :size=>80)
-    - unless hide_edit_links?
-      %a{:href => "http://gravatar.com/emails", :target=>"_blank"}
-        change
+  %h1
+    #gravatar
+      = gravatar_for (@user)
+      %br/
+      = @user.name
+    = @spec.full_name
     %br/
-  = @spec.full_name
-  %br/
-  =@spec.occupation
-  %br/
+    =@spec.occupation
+    %br/
+    =@spec.birthday
   %hr/
   = link_to profile_url(@user), profile_path(@user)
   %br/
-  -#= friendship_status(current_user, @user) if !User.is_same?(@user, current_user)
-  = friendship_status(current_user, @user) unless current_user?(@user)
+  = friendship_status(current_user, @user) if !User.is_same?(@user, current_user)
   %br/
   = link_to "send user a mail", :controller =>"emails",
-            :action =>"correspond", :id =>@user unless current_user?(@user)
+            :action =>"correspond", :id =>@user unless User.is_same?(@user, current_user)
   %br/
-
-  - unless Friendship.exists?(current_user, @user) or current_user?(@user)
+  - unless Friendship.exists?(current_user, @user) or User.is_same?(@user, current_user)
     = link_to "Add #{@user.name} as friend",{:controller =>"friendships", :action =>"initiate",
                    :id => @user.id}, :confirm => "Add #{@user.name} as friend?"
   %hr/
@@ -27,17 +25,10 @@
     %h2
       My Bio
     = sanitize @faq.bio
-    -#%hr/
+    %br/
     - unless hide_edit_links?
       %span.edit_link
         = link_to "(edit)", edit_faq_path(@user)
-
-
-  -#mutual friends are displayed only when in profile view mode 
-  - if hide_edit_links? and !current_user?(@user)
-    = render 'friendships/mutual_friends'
-  %hr/
-
   = render 'friendships/friends'
 
 #middle_side
@@ -66,35 +57,6 @@
 
   %fieldset
     %legend
-      Networks
-    %table
-      %tr
-        %td
-          Facebook:
-        %td
-          = @network.facebook
-      %tr
-        %td
-          Twitter:
-        %td
-          = @network.twitter
-      %tr
-        %td
-          LinkedIn:
-        %td
-          = @network.linkedin
-      %tr
-        %td
-          Youtube:
-        %td
-          = @network.youtube
-
-    - unless hide_edit_links?
-      %span.edit_link
-        = link_to "edit", edit_network_path(@user)
-
-  %fieldset
-    %legend
       User Spec
     %table
       -#= render 'specs/field_row', :collection => Spec::ALL_FIELDS
@@ -105,21 +67,6 @@
         = link_to "edit", edit_spec_path(@user)
   - Faq::FAVOURITES.each do |favourite|
     = render 'faqs/sidebar_box', :sidebar_box => favourite
-
-  - unless hide_edit_links? #preference are not to be shown in settings mode 
-    %fieldset
-      %legend
-        Preferences
-      %table
-        %tr
-          %td
-            Show Profile to:
-
-          %td
-            = @preference.profile_view
-
-      %span.edit_link
-        = link_to "edit", edit_preference_path(@user)
 
 #right_side
   notification and ads will be here

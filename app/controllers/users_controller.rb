@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     @spec = @user.spec ||= Spec.new
     @faq = @user.faq ||= Faq.new
     @network = @user.network ||= Network.new
+    @preference = @user.preference ||= Preference.new
   end
 
   def create

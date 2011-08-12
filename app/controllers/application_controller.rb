@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     @user = User.find(params[:id])
     #redirect_to (root_path) unless current_user?(@user)
     unless current_user?(@user)
-      flash[:error] = "The requested page is unauthorized"
+      flash[:error] = "The requested page is not authorized"
       redirect_to(user_path(current_user))
       #redirect_to root_path
     end

@@ -1,0 +1,7 @@
+%hr/
+= pluralize(mutual_friends(@user).count, "mutual friend")
+%hr/
+- mutual_friends(@user).each do |mutual_friend|
+  .mutual_friends
+    = link_to (gravatar_for mutual_friend, :size => 40),
+            profile_path(mutual_friend)

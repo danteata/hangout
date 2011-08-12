@@ -9,7 +9,11 @@ View
 = link_to user_path(@user, :host=>"locahost:3000"), user_path(@user, :host=>"locahost:3000")
 %br/
 Accept:
-=@accept_url
+%br/
+%a
+  =@accept_url
 %br/
 Decline:
-=@decline_url
+%br/
+%a
+  =@decline_url

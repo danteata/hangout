@@ -7,9 +7,6 @@
       = text_field_tag "term", params[:term]
       = submit_tag "go"
   #white_space
-    - if signed_in? and facebook_profile?
-      %a{:href=>"www.facebook.com/#{facebook_profile}", :host=>"www.facebook.com"}
-        %img{:src=>"icon_facebook.png", :alt =>"facebok ikon"}
     - if signed_in?
       = link_to_if(facebook_profile?, image_tag("icon_facebook.png",:alt=>"facebook", :class=>"network_logos", :id=>"facebook"),
         "/#{facebook_profile}", {:host=>"www.facebook.com",:only_path=>false})

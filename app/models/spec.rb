@@ -1,5 +1,5 @@
 class Spec < ActiveRecord::Base
-  attr_accessible  :first_name, :last_name, :occupation, :city, :birthday
+  attr_accessible  :first_name, :last_name, :occupation, :city, :birthday, :gender
   belongs_to :user
 
   validates :first_name, :presence => true
