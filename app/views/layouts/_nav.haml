@@ -12,7 +12,7 @@
         %img{:src=>"icon_facebook.png", :alt =>"facebok ikon"}
     - if signed_in?
       = link_to_if(facebook_profile?, image_tag("icon_facebook.png",:alt=>"facebook", :class=>"network_logos", :id=>"facebook"),
-        "/#{facebook_profile}", {:host=>"www.facebook.com"})
+        "/#{facebook_profile}", {:host=>"www.facebook.com",:only_path=>false})
 
       = link_to_if(twitter_profile?, image_tag("icon_twitter.png",:alt=>"twitter", :class=>"network_logos", :id=>"twitter"),
         "/#{twitter_profile}", {:host=>"www.twitter.com"})

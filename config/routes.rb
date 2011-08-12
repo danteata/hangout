@@ -1,5 +1,9 @@
 SampleApplication::Application.routes.draw do
 
+  #get "preferences/edit"
+
+  #get "preferences/show"
+
   get "chats/index"
   get "chats/send_data"
 
@@ -40,6 +44,7 @@ SampleApplication::Application.routes.draw do
   resources :friendships
   resources :networks
   resources :chats
+  resources :preferences
 
   match "/signup", :to=> "users#new"
   match "/signin", :to => "sessions#new"

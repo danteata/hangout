@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110806235935) do
+ActiveRecord::Schema.define(:version => 20110811232355) do
 
   create_table "faqs", :force => true do |t|
     t.integer  "user_id"
@@ -52,6 +52,20 @@ ActiveRecord::Schema.define(:version => 20110806235935) do
     t.string   "twitter"
     t.string   "linkedin"
     t.string   "youtube"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "preferences", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "profile_view", :default => "all"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "settings", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "profile_view", :default => "all"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

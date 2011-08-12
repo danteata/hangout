@@ -1,4 +1,7 @@
 class ProfilesController < ApplicationController
+  before_filter :authenticate
+  before_filter :check_profile_privacy, :only =>[:show] #checks if user's profile can be viewed by requesting user 
+
   def index
   end
 
@@ -28,4 +31,19 @@ class ProfilesController < ApplicationController
   def edit
 
   end
+
+  private
+
+  #checks for user's permission and performs appropriate action
+  def check_profile_privacy
+    flash[:notice] = "#{current_user} only allows friends to view profile"
+    redirect_to profile_path(current_user), :notice =>"can't view" unless can_view?
+  end
+
+  #returns true if user has permission to view the requested friend's profile
+  def can_view?
+    @preference = @user.preference ||= Preference.new
+    !(@preference == "friends" and !@user.friends.include?(current_user))
+  end
+
 end

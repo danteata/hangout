@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   has_one :network, :dependent => :destroy
 
+  has_one :preference, :dependent => :destroy
+
   has_many :friendships, :dependent => :destroy
 
   has_many :friends,

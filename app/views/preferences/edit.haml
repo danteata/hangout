@@ -1,0 +1,16 @@
+%h1 Edit Preference
+%h1
+  =@user.name
+
+= form_for (@preference) do |f|
+  %fieldset
+    %legend 
+      = @title
+    = render 'shared/error_messages', :object =>f.object
+    .field
+      = f.label :profile_view
+      %br 
+      = f.text_field :profile_view
+    .actions
+      = f.submit "Edit preference"
+
