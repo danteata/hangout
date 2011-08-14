@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate, :only => [:index,:show, :edit, :update] #non members can only sign up to platform 
-  before_filter :correct_user, :only => [:show, :edit, :update] #member actions require current_user 
+  before_filter :correct_user, :only => [:edit, :update] #member actions require current_user 
   before_filter :admin_user, :only=> :destroy
 
   #displays a view of all users of the platform
@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     @title = "All users"
     #@users = User.all
     @users = User.all.paginate :page => params[:page], :per_page => 10 #implements pagination with will_paginate gem 
+    respond_to do |format|
+      format.html {render :index}
+      format.js
+    end
   end
 
   #renders a new view to sign up new users
@@ -17,8 +21,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @hide_edit_links = false
     @user = User.find(params[:id])
+    #edit links will show if user is viewing his own profile
+    @hide_edit_links = true unless current_user?(@user)
     @friends = @user.friends
     @requested_friends = @user.requested_friends
     @pending_friends = @user.pending_friends
@@ -66,6 +71,26 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def friends
+
+    @user = User.find(params[:id])
+    @friends = @user.friends.paginate :page => params[:page]
+
+    if @friends.empty?
+      flash[:notice] = "There are no friends to display"
+      respond_to do |format|
+        format.html {redirect_to profile_path(@user)}
+        format.js
+      end
+      #redirect_to profile_path(@user)
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+    #redirect_to profile_path(@user)
+  end
 
 
 

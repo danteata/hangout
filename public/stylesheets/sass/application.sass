@@ -1,6 +1,6 @@
-@import 'compass'
+@import compass
 //@import 'compass/typography'
-@import 'blueprint'
+@import blueprint
 //@import 'compass/utilities'
 //@import 'compass/reset'
 $blueprint-liquid-container-min-width: 450px
@@ -61,7 +61,7 @@ body
     +shadow
     +rounded
     //+column(20)
-    +container
+    //+container
     //+showgrid
 
     header
@@ -117,7 +117,7 @@ body
 
             ul
               li
-                +no-bullet //compass mixin 
+                //+no-bullet //compass mixin 
                 :display inline-block
                 :padding 0.2em
 
@@ -131,6 +131,8 @@ body
       :background #73B2DD
       //:background white
       :margin 10px
+      :height auto
+
       +rounded
 
       section
@@ -144,6 +146,7 @@ body
         :margin-top 2px
         :padding 20px
         :padding-top 2px
+        :height auto
         +rounded
 
         #sign_up_button

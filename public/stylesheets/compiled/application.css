@@ -50,11 +50,6 @@ body .container {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  min-width: 450px;
-  width: 80%;
-  margin: 0 auto;
-  overflow: hidden;
-  *zoom: 1;
 }
 /* line 67, ../sass/application.sass */
 body .container header {
@@ -125,9 +120,6 @@ body .container header #white_space #nav_container nav {
 }
 /* line 119, ../sass/application.sass */
 body .container header #white_space #nav_container nav ul li {
-  list-style-image: none;
-  list-style-type: none;
-  margin-left: 0px;
   display: inline-block;
   padding: 0.2em;
 }
@@ -142,11 +134,12 @@ body .container #inner_content {
   padding: 0px;
   background: #73b2dd;
   margin: 10px;
+  height: auto;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 136, ../sass/application.sass */
+/* line 138, ../sass/application.sass */
 body .container #inner_content section {
   clear: both;
   background: white;
@@ -157,11 +150,12 @@ body .container #inner_content section {
   margin-top: 2px;
   padding: 20px;
   padding-top: 2px;
+  height: auto;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 149, ../sass/application.sass */
+/* line 152, ../sass/application.sass */
 body .container #inner_content section #sign_up_button {
   margin-left: auto;
   margin-right: auto;
@@ -177,7 +171,7 @@ body .container #inner_content section #sign_up_button {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 162, ../sass/application.sass */
+/* line 165, ../sass/application.sass */
 body .container #inner_content section #left_side {
   background: #15405c;
   color: white;
@@ -191,18 +185,18 @@ body .container #inner_content section #left_side {
   margin-bottom: 20px;
   border-radius: 10px 0px 0px 10px;
 }
-/* line 173, ../sass/application.sass */
+/* line 176, ../sass/application.sass */
 body .container #inner_content section #left_side h1 #gravatar {
   margin: auto;
   border: 1px solid black;
   background: gray;
 }
-/* line 178, ../sass/application.sass */
+/* line 181, ../sass/application.sass */
 body .container #inner_content section #left_side h1 #gravatar img {
   margin: auto;
   text-align: center;
 }
-/* line 181, ../sass/application.sass */
+/* line 184, ../sass/application.sass */
 body .container #inner_content section #middle_side {
   color: white;
   background: #15405c;
@@ -219,7 +213,7 @@ body .container #inner_content section #middle_side {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 193, ../sass/application.sass */
+/* line 196, ../sass/application.sass */
 body .container #inner_content section #right_side {
   background: #15405c;
   color: white;

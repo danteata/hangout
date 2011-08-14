@@ -15,12 +15,35 @@ class ProfilesController < ApplicationController
     @spec = @user.spec ||=Spec.new
     @faq = @user.faq ||= Faq.new
     @network = @user.network ||= Network.new
-    render "users/show" #profile view and users view are similar (just without edit links) 
+
+    #gets all of a user's friends and retrieves their ids.
+    #profile_friends_ids = @user.friends.map {|friend| friend.id}
+    profile_friends_ids = @user.friends.map(&:id)
+    # a status feed is posted by a user unto his own wall.and only friends feeds are retrieved.
+    @status = Post.where "poster_id = user_id and poster_id = ?", @user
+
+    @friend_feeds = Post.where ("poster_id = user_id AND poster_id IN (#{profile_friends_ids})")
+    @wall_posts = Post.where "user_id = #{@user.id} AND poster_id IN (#{profile_friends_ids})"
+
+    #visitors of a profile see all posts written by profile owner's friends plus status updates.
+    @posts = @status.nil? ? [] : @status.paginate(:page=>params[:page])
+    #@posts = @user.posts.paginate(:page => params[:page])
+    #@microposts = @user.microposts.paginate(:page => params[:page])
+    #render "users/show" #profile view and users view are similar (just without edit links) 
   end
 
   def edit
 
   end
+
+  #def profile_feed
+  ##gets all of a user's friends and retrieves their ids.
+  #profile_friends_ids = @user.friends.map {|friend| friend.id}
+  ## a status feed is posted by a user unto his own wall.and only friends feeds are retrieved.
+  #feed = Micropost.where(:poster_id=> profile_friends_id.push(@user.id) AND
+  #:poster_id =?, :user_id)
+  #Micropost.where("poster_id IN #{profile_friends_id.push(@user.id)} AND poster_id =user_id")
+  #end
 
   private
 
@@ -31,7 +54,7 @@ class ProfilesController < ApplicationController
     unless can_view?(@user) or current_user?(@user)
       flash[:notice] = "#{@user.name} only allows friends to view profile.
        You can send a request to be friends on hangout."
-      redirect_to profile_path(current_user) #redirect user to own profile if requested profile is inaccessible 
+       redirect_to profile_path(current_user) #redirect user to own profile if requested profile is inaccessible 
     end
   end
 
@@ -39,9 +62,8 @@ class ProfilesController < ApplicationController
   def can_view?(user)
     @user = user
     @preference = @user.preference ||= Preference.new
-
     #a user's profile can be viewed if he has no restriction(all ends with ll) on it or otherwise if requester is a friend.
-     #@preference.profile_view.end_with? "ll" || @user.friends.include?(current_user)
+    #@preference.profile_view.end_with? "ll" || @user.friends.include?(current_user)
     @user.friends.include?(current_user) || @preference.profile_view.end_with? ("ll")
   end
 

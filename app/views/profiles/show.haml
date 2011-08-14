@@ -1,6 +1,6 @@
 #left_side
   #gravatar
-    = gravatar_for (@user, :size=>80)
+    = gravatar_for (@user, :size=>150)
     - unless hide_edit_links?
       %a{:href => "http://gravatar.com/emails", :target=>"_blank"}
         change
@@ -10,115 +10,80 @@
   =@spec.occupation
   %br/
   %hr/
-  = link_to profile_url(@user), profile_path(@user)
+  = link_to "#{@user.name}\'s info", user_path(@user)
+  %br/
+  = link_to "#{@user.name}\'s friends", friends_user_path(@user)
   %br/
   -#= friendship_status(current_user, @user) if !User.is_same?(@user, current_user)
   = friendship_status(current_user, @user) unless current_user?(@user)
   %br/
   = link_to "send user a mail", :controller =>"emails",
-            :action =>"correspond", :id =>@user unless User.is_same?(@user, current_user)
+    :action =>"correspond", :id =>@user unless current_user?(@user)
   %br/
+
+  - unless Friendship.exists?(current_user, @user) or current_user?(@user)
+    = link_to "Add #{@user.name} as friend",{:controller =>"friendships", :action =>"initiate",
+      :id => @user.id}, :confirm => "Add #{@user.name} as friend?"
   %hr/
+  -unless @faq.bio.blank?
+    #bio
+      %h2
+        My Bio
+      = sanitize @faq.bio
+      -#%hr/
+      - unless hide_edit_links?
+        %span.edit_link
+          = link_to "(edit)", edit_faq_path(@user)
+
 
   -#mutual friends are displayed only when in profile view mode 
-  - if hide_edit_links?
-    - mutual_friends(@user).each do |mutual_friend|
-      %li
-        = mutual_friend.name
-  - unless Friendship.exists?(current_user, @user) or User.is_same?(@user, current_user)
-    = link_to "Add #{@user.name} as friend",{:controller =>"friendships", :action =>"initiate",
-                   :id => @user.id}, :confirm => "Add #{@user.name} as friend?"
+  - if hide_edit_links? and !current_user?(@user)
+    = render 'friendships/mutual_friends'
   %hr/
-  #bio
-    %h2
-      My Bio
-    = sanitize @faq.bio
-    %br/
-    - unless hide_edit_links?
-      %span.edit_link
-        = link_to "(edit)", edit_faq_path(@user)
+
   = render 'friendships/friends'
 
 #middle_side
-  %fieldset
-    %legend
-      Basic User Info
-    %table
-      %tr
-        %td.label
-          Screen Name:
-        %td
-          = @user.name
-      %tr
-        %td.label
-          Email:
-        %td
-          = @user.email
-      %tr
-        %td.label
-          Password:
-        %td
-          ******
-    - unless hide_edit_links?
-      %span.edit_link
-        = link_to "edit", edit_user_path(@user)
+  -#form to write a new wall post (foreigners) or status update (profile owner) 
+    -#intend to use ajax here 
+  - unless current_user?(@user)
+    Post to wall
+  - else
+    Post status
+  %br/
+  = form_for @user.posts.build(:user_id => current_user) do |f|
+    = f.hidden_field  :user_id
+    = f.text_field :content
+    %br/
+    = f.submit "Post"
 
-  %fieldset
-    %legend
-      Networks
-    %table
-      %tr
-        %td
-          Facebook:
-        %td
-          = @network.facebook
-      %tr
-        %td
-          Twitter:
-        %td
-          = @network.twitter
-      %tr
-        %td
-          LinkedIn:
-        %td
-          = @network.linkedin
-      %tr
-        %td
-          Youtube:
-        %td
-          = @network.youtube
-
-    - unless hide_edit_links?
-      %span.edit_link
-        = link_to "edit", edit_network_path(@user)
-
-  %fieldset
-    %legend
-      User Spec
-    %table
-      -#= render 'specs/field_row', :collection => Spec::ALL_FIELDS
-      - Spec::ALL_FIELDS.each do |field|
-        = render 'specs/field_row', :field_row => field
-    - unless hide_edit_links?
-      %span.edit_link
-        = link_to "edit", edit_spec_path(@user)
-  - Faq::FAVOURITES.each do |favourite|
-    = render 'faqs/sidebar_box', :sidebar_box => favourite
-
-  - unless hide_edit_links? #preference are not to be shown in settings mode 
+  -#displays the status updates of the user whose profile is being viewed 
+  - unless @status.empty?
     %fieldset
       %legend
-        Preferences
+        Status
       %table
-        %tr
-          %td
-            Show Profile to:
+        -#= render @posts
+        = render @posts
+    = will_paginate @posts
 
-          %td
-            = @preference.profile_view
+  -#friend feeds are only displayed on current user own profile and when there are feeds available 
+  - unless !current_user?(@user) or @friend_feeds.empty?
+    %fieldset
+      %legend
+        Friend Feeds
+        %table
+          = render :partial =>'profiles/wall_posts', :collection => @wall_posts
+    -#= will_paginate @friend_feeds
 
-      %span.edit_link
-        = link_to "edit", edit_preference_path(@user)
+  -#posts by friends on user whose profile is being viewed. 
+  - unless @wall_posts.empty?
+    %fieldset
+      %legend
+        Wall Posts
+        %table
+          = render :partial =>'profiles/wall_posts', :collection => @wall_posts
+    -#= will_paginate @wall_posts
 
 #right_side
   notification and ads will be here

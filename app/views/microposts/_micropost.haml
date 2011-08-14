@@ -1,0 +1,13 @@
+%tr
+  %td
+    %span
+      = link_to gravatar_for(@user, :size =>50), profile_path(@user)
+      = link_to @user.name, profile_path(@user)
+    %span
+      %br/
+      = micropost.content
+      %br/
+    %span
+      Posted
+      = time_ago_in_words micropost.created_at
+      ago.

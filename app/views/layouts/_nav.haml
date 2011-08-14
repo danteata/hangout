@@ -9,16 +9,16 @@
   #white_space
     - if signed_in?
       = link_to_if(facebook_profile?, image_tag("icon_facebook.png",:alt=>"facebook", :class=>"network_logos", :id=>"facebook"),
-        "/#{facebook_profile}", {:host=>"www.facebook.com",:only_path=>false})
+        "http://www.facebook.com/#{facebook_profile}", :target =>"_blank")
 
       = link_to_if(twitter_profile?, image_tag("icon_twitter.png",:alt=>"twitter", :class=>"network_logos", :id=>"twitter"),
-        "/#{twitter_profile}", {:host=>"www.twitter.com"})
+        "http://www.twitter.com/#{twitter_profile}", :target =>"_blank")
 
       = link_to_if(linkedin_profile?, image_tag("icon_linkedin.png",:alt=>"linkedin", :class=>"network_logos", :id=>"linkedin"),
-        "/#{linkedin_profile}", {:host=>"www.linkedin.com"})
+        "http://www.linkedin.com/#{linkedin_profile}", :target =>"_blank")
 
       = link_to_if(youtube_profile?, image_tag("icon_youtube.png",:alt=>"youtube", :class=>"network_logos", :id=>"youtube_logo"),
-        "/#{youtube_profile}", {:host=>"www.youtube.com"})
+        "http://www.youtube.com/#{youtube_profile}", :target =>"_blank")
 
     #nav_container
       %nav#round_special

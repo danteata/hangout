@@ -1,0 +1,10 @@
+= will_paginate @friends
+%fieldset
+  %legend
+    All friends
+  %table
+    - @friends.each do |friend|
+      %tr
+        %td
+          = friend.name
+= will_paginate @friends

@@ -21,12 +21,6 @@ namespace :db do
                    :email => email,
                    :password => password,
                    :password_confirmation => password)
-      #facebook_name = Faker::Name.first_name
-      #twitter_name = Faker::Name.first_name
-      #youtube_name = Faker::Name.first_name
-      #linkedin_name = Faker::Name.first_name
-      #networks = {:facebook => facebook_name, :linkedin =>linkedin_name,
-                  #:youtube => youtube_name, :twitter => twitter_name}
       networks = {:facebook =>first_name.downcase, :linkedin =>first_name.downcase,
                   :youtube => last_name.downcase, :twitter => last_name.downcase}
       user.network = Network.new

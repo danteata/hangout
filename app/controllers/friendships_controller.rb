@@ -49,6 +49,17 @@ class FriendshipsController < ApplicationController
     redirect_to profile_path(@user)
   end
 
+  def show
+    @user = User.find(params[:id])
+    @friends = @user.friends.paginate :page => params[:page]
+
+    if @friends.empty?
+      flash[:notice] = "There are no friends to display"
+      redirect_to profile_path(@user)
+    end
+
+  end
+
   private 
 
   #initialize current user and friend

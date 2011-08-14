@@ -38,13 +38,20 @@ SampleApplication::Application.routes.draw do
 
   resources :faqs
   resources :specs
-  resources :users
+
+  resources :users do
+    member do
+      get :friends
+    end
+  end
+
   resources :sessions, :only => [:new, :create, :destroy]
   resources :profiles
   resources :friendships
   resources :networks
   resources :chats
   resources :preferences
+  resources :posts
 
   match "/signup", :to=> "users#new"
   match "/signin", :to => "sessions#new"

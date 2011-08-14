@@ -1,6 +1,6 @@
 #left_side
   #gravatar
-    = gravatar_for (@user, :size=>80)
+    = gravatar_for (@user, :size=>150)
     - unless hide_edit_links?
       %a{:href => "http://gravatar.com/emails", :target=>"_blank"}
         change
@@ -10,7 +10,7 @@
   =@spec.occupation
   %br/
   %hr/
-  = link_to profile_url(@user), profile_path(@user)
+  = link_to "#{@user.name}\'s info", user_path(@user)
   %br/
   -#= friendship_status(current_user, @user) if !User.is_same?(@user, current_user)
   = friendship_status(current_user, @user) unless current_user?(@user)

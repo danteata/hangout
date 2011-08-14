@@ -1,0 +1,17 @@
+= will_paginate @friends
+%fieldset
+  %legend
+    Friends List
+  %table
+    - @friends.each do |friend|
+      %tr
+        %td
+          = gravatar_for(friend, :size=>60)
+          %br/
+          = friend.name
+        %td
+          - unless hide_edit_links?
+            = link_to "Delete", {:controller => "friendships",
+                  :action => "delete", :id => friend.id},
+                  :confirm => "Delete friendship with #{friend.name}?"
+= will_paginate @friends

@@ -1,7 +1,8 @@
 %table
   %tr
     %th
-      = pluralize(@friends.count,"friend")
+      = link_to (pluralize(@friends.count,"friend"), friends_user_path(@user))
+        
   - @friends.each do |friend|
     = render "friendships/friend", :friend => friend
   -unless @requested_friends.empty? or hide_edit_links?
