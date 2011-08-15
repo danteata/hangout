@@ -85,10 +85,10 @@ class UsersController < ApplicationController
       #redirect_to profile_path(@user)
     end
 
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    #respond_to do |format|
+      #format.html
+      #format.js
+    #end
     #redirect_to profile_path(@user)
   end
 
