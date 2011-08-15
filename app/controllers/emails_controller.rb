@@ -1,6 +1,7 @@
 class EmailsController < ApplicationController
   before_filter :authenticate, :except => "remind"
 
+
   #displays reminder form and sends user's login info via mail
   def remind
     @title = "Password Reminder"
@@ -22,10 +23,10 @@ class EmailsController < ApplicationController
     @user = current_user
     @recipient = User.find(params[:id])
     @title = "Email #{@recipient.name}"
-
     if param_posted?(:original) #if user is responding to an original mail 
-      @original = params[:orignal]
-      @original_subject = params[:original_subject]
+      # @original and @original_subject will be availabe in the correspond view
+      @original_title = session[:original_title]
+      @original_body = session[:original_subject]
     end
 
     @message ||= Message.new({:subject=>"", :body=>""})
@@ -36,7 +37,12 @@ class EmailsController < ApplicationController
       @message.body = params[:message][:body]
 
       if @message.valid?
-        UserMailer.correspond_mail(@user, @recipient, @message).deliver
+        #@body_sesson and @title_session will be available to mailer and it's correspond_message view
+        @body_session = session[:original_message] #creating session in the controller 
+        @title_session = session[:original_title]
+        #passing message params including session instances to be accessible in action mailer
+        UserMailer.correspond_mail(@user, @recipient, @message, 
+                        @body_session, @title_session).deliver
         flash[:success] = "Email sent to #{@recipient.name}"
         redirect_to profile_path(@recipient)
       end

@@ -46,6 +46,9 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password  #callback function to save the encrypted password  
   
+  #def protect_against_forgery?
+    #false
+  #end
 
   def self.authenticate(email, submitted_password) #fetches user with the email given and compares emails corresponding encrypted_password with encrypted version of submitted password 
     user = find_by_email(email)

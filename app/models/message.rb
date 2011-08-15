@@ -15,6 +15,9 @@ class Message
     false
   end
 
+  def protect_against_forgery?
+    false
+  end
   #def self.validate
     #return flash[:notice] = "Subject or message can't be blank" if @subject == " " or @message == " "
     #@subject != nil or ""

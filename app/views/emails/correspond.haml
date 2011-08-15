@@ -9,13 +9,13 @@
 
     = f.label :subject
     %br/
-    %p
-      original message was:
-    %br/
-    - if params[:original]
-      = params[:original_subject]
-      %br
-      = params[:original]
+    - if @original_title and @original_body # if user is replying an original message 
+      %p
+        Original message was:
+      %br/
+      = @original_title
+      %hr
+      = @original_body
       %br/
     %br/
     =f.text_field :subject
