@@ -10,7 +10,8 @@
           %br/
           = friend.name
         %td
-          - unless hide_edit_links?
+          -#delete action is accessible only if current user is viewing his own friends. 
+          - unless hide_edit_links? or !current_user?(@user)
             = link_to "Delete", {:controller => "friendships",
                   :action => "delete", :id => friend.id},
                   :confirm => "Delete friendship with #{friend.name}?"

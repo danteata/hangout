@@ -1,8 +1,7 @@
 @import compass
-//@import 'compass/typography'
-@import blueprint
-//@import 'compass/utilities'
-//@import 'compass/reset'
+//@import blueprint
+@import 'compass/utilities'
+@import 'compass/reset'
 $blueprint-liquid-container-min-width: 450px
 @import 'blueprint/liquid'
 
@@ -18,24 +17,22 @@ $blueprint-liquid-container-min-width: 450px
   :border-radius 10px
 
 body
-  //+blueprint
   :background url("/images/bg_image_here.png") #15405C no-repeat
   //:background = url("/images/bg_image_here.png") !bodycolor no-repeat
 
   fieldset
     :margin-top 10px
-    //:background #15405C
-    //:background #73B2DD
-    :background white
+    //:background white
     :color black
-    //:text-align center
 
   legend
     :background black
     //:background #73B2DD
     :color white
     :font-weight bold
-    :padding 2px
+    :padding 5px
+    :margin-bottom 5px
+    :min-width 100px
     +rounded
   a
     :color #09C
@@ -52,34 +49,28 @@ body
       :color green
 
   .container
-    //+blueprint
-    +showgrid
-    :border 6px solid black
-    //:width 85%
+    //:border 6px solid black
+    :clear both
     :margin auto
     :background white
+    :height auto
     +shadow
     +rounded
-    //+column(20)
-    //+container
-    //+showgrid
 
     header
       :background black
-      +rounded
+      :position relative
 
       #logo_image
       #search_space
         :position absolute
-        :top 30px
-        :right 200px
+        :top 20px
+        :right 20px
         :background white
-        :height 25px
+        :height 29px
         :width 250px
         +rounded
 
-        form
-          +rounded
 
       #white_space
         :background white
@@ -95,8 +86,8 @@ body
           :margin-right 8px
 
         #nav_container
-          :float right
-          :margin-right 12px
+          :float left
+          :margin-left 15px
           :margin-top 25px
           :width 60%
           :height 25px
@@ -125,15 +116,15 @@ body
                   :padding 0 5px
                   :font-weight bold
 
-    #inner_content
-      :clear both
-      :padding 0px
-      :background #73B2DD
-      //:background white
-      :margin 10px
-      :height auto
-
-      +rounded
+    //#inner_content
+      //:clear both
+      //:padding 0px
+      ////:background #73B2DD
+      ////:background white
+      //:margin 10px
+      //:height auto
+      ////+blueprint
+      //+rounded
 
       section
         :clear both
@@ -147,6 +138,7 @@ body
         :padding 20px
         :padding-top 2px
         :height auto
+        //+blueprint
         +rounded
 
         #sign_up_button
@@ -166,8 +158,7 @@ body
           :background #15405C
           :color white
           :border 1px solid black
-          //:width 23%
-          +column(5)
+          
           :padding 10px
           :margin-bottom 20px
           :border-radius 10px 0px 0px 10px
@@ -208,5 +199,9 @@ body
           :border-radius 0px 10px 10px 0px
 
     footer
+      :text-align center
+      :color white
+      :background black
+
     
 

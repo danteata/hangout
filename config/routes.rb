@@ -68,6 +68,8 @@ SampleApplication::Application.routes.draw do
   match "/friendships/delete", :to => "friendships#delete"
   #match "emails/correspond/:id", :as => "correspond"
   match "/chats/send_data", :to => "chats#send_data"
+  match "/preferences/edit", :to => "preferences#edit"
+  match "/preferences/show", :to => "preferences#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

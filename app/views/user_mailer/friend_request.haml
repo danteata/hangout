@@ -5,15 +5,12 @@ Hello
 You have a friend request from 
 =@user.name
 %br/
-View
-= link_to user_path(@user, :host=>"locahost:3000"), user_path(@user, :host=>"locahost:3000")
 %br/
 Accept:
 %br/
-%a
-  =@accept_url
+= link_to "Accept Link", @accept_url
 %br/
+
 Decline:
 %br/
-%a
-  =@decline_url
+= link_to "Decline Link", @decline_url

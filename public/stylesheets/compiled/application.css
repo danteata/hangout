@@ -1,48 +1,114 @@
-@charset "UTF-8";
-/* line 20, ../sass/application.sass */
+/* line 17, ../../../../../../../var/lib/gems/1.8/gems/compass-0.11.beta.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../../../../var/lib/gems/1.8/gems/compass-0.11.beta.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../../../../var/lib/gems/1.8/gems/compass-0.11.beta.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../../../../var/lib/gems/1.8/gems/compass-0.11.beta.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../../../../var/lib/gems/1.8/gems/compass-0.11.beta.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../../../../var/lib/gems/1.8/gems/compass-0.11.beta.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../../../../var/lib/gems/1.8/gems/compass-0.11.beta.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../../../../var/lib/gems/1.8/gems/compass-0.11.beta.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 115, ../../../../../../../var/lib/gems/1.8/gems/compass-0.11.beta.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 19, ../sass/application.sass */
 body {
   background: url("/images/bg_image_here.png") #15405c no-repeat;
 }
-/* line 25, ../sass/application.sass */
+/* line 23, ../sass/application.sass */
 body fieldset {
   margin-top: 10px;
-  background: white;
   color: black;
 }
-/* line 33, ../sass/application.sass */
+/* line 28, ../sass/application.sass */
 body legend {
   background: black;
   color: white;
   font-weight: bold;
-  padding: 2px;
+  padding: 5px;
+  margin-bottom: 5px;
+  min-width: 100px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 40, ../sass/application.sass */
+/* line 37, ../sass/application.sass */
 body a {
   color: #0099cc;
   text-decoration: none;
 }
-/* line 44, ../sass/application.sass */
+/* line 41, ../sass/application.sass */
 body a:hover {
   color: #006699;
   text-decoration: underline;
 }
-/* line 48, ../sass/application.sass */
+/* line 45, ../sass/application.sass */
 body a:visited {
   color: #006699;
 }
-/* line 51, ../sass/application.sass */
+/* line 48, ../sass/application.sass */
 body a:active {
   color: green;
 }
-/* line 54, ../sass/application.sass */
+/* line 51, ../sass/application.sass */
 body .container {
-  background: url('/images/grid.png?1313135623');
-  border: 6px solid black;
+  clear: both;
   margin: auto;
   background: white;
+  height: auto;
   -moz-box-shadow: white 0 4px 8px;
   -webkit-box-shadow: white 0 4px 8px;
   khtml-box-shadow: white 0 4px 8px;
@@ -51,32 +117,24 @@ body .container {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 67, ../sass/application.sass */
+/* line 60, ../sass/application.sass */
 body .container header {
   background: black;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
+  position: relative;
 }
-/* line 72, ../sass/application.sass */
+/* line 65, ../sass/application.sass */
 body .container header #search_space {
   position: absolute;
-  top: 30px;
-  right: 200px;
+  top: 20px;
+  right: 20px;
   background: white;
-  height: 25px;
+  height: 29px;
   width: 250px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 81, ../sass/application.sass */
-body .container header #search_space form {
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-/* line 84, ../sass/application.sass */
+/* line 75, ../sass/application.sass */
 body .container header #white_space {
   background: white;
   height: 60px;
@@ -87,16 +145,16 @@ body .container header #white_space {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 92, ../sass/application.sass */
+/* line 83, ../sass/application.sass */
 body .container header #white_space .network_logos {
   float: right;
   margin-top: 8px;
   margin-right: 8px;
 }
-/* line 97, ../sass/application.sass */
+/* line 88, ../sass/application.sass */
 body .container header #white_space #nav_container {
-  float: right;
-  margin-right: 12px;
+  float: left;
+  margin-left: 15px;
   margin-top: 25px;
   width: 60%;
   height: 25px;
@@ -105,126 +163,32 @@ body .container header #white_space #nav_container {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 106, ../sass/application.sass */
+/* line 97, ../sass/application.sass */
 body .container header #white_space #nav_container #round_special {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 111, ../sass/application.sass */
+/* line 102, ../sass/application.sass */
 body .container header #white_space #nav_container nav {
   height: 31px;
   width: 100%;
   background: white;
   margin-top: -16px;
 }
-/* line 119, ../sass/application.sass */
+/* line 110, ../sass/application.sass */
 body .container header #white_space #nav_container nav ul li {
   display: inline-block;
   padding: 0.2em;
 }
-/* line 124, ../sass/application.sass */
+/* line 115, ../sass/application.sass */
 body .container header #white_space #nav_container nav ul li a {
   padding: 0 5px;
   font-weight: bold;
 }
-/* line 128, ../sass/application.sass */
-body .container #inner_content {
-  clear: both;
-  padding: 0px;
-  background: #73b2dd;
-  margin: 10px;
-  height: auto;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-/* line 138, ../sass/application.sass */
-body .container #inner_content section {
-  clear: both;
-  background: white;
-  width: 95%;
-  min-height: 450px;
-  margin: auto;
-  margin-bottom: 1px;
-  margin-top: 2px;
-  padding: 20px;
-  padding-top: 2px;
-  height: auto;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-/* line 152, ../sass/application.sass */
-body .container #inner_content section #sign_up_button {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+/* line 201, ../sass/application.sass */
+body .container footer {
   text-align: center;
-  width: 190px;
   color: white;
-  background: #006400;
-  font-size: 150%;
-  font-weight: bold;
-  padding: 20px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-/* line 165, ../sass/application.sass */
-body .container #inner_content section #left_side {
-  background: #15405c;
-  color: white;
-  border: 1px solid black;
-  display: inline;
-  float: left;
-  overflow: hidden;
-  width: 20.003%;
-  margin-right: 1.042%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 10px 0px 0px 10px;
-}
-/* line 176, ../sass/application.sass */
-body .container #inner_content section #left_side h1 #gravatar {
-  margin: auto;
-  border: 1px solid black;
-  background: gray;
-}
-/* line 181, ../sass/application.sass */
-body .container #inner_content section #left_side h1 #gravatar img {
-  margin: auto;
-  text-align: center;
-}
-/* line 184, ../sass/application.sass */
-body .container #inner_content section #middle_side {
-  color: white;
-  background: #15405c;
-  width: 45%;
-  display: inline;
-  float: left;
-  overflow: hidden;
-  width: 53.675%;
-  margin-right: 1.042%;
-  border: 1px solid black;
-  margin-top: 0px;
-  padding: 5px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-/* line 196, ../sass/application.sass */
-body .container #inner_content section #right_side {
-  background: #15405c;
-  color: white;
-  border: 1px solid black;
-  display: inline;
-  float: left;
-  overflow: hidden;
-  width: 15.794%;
-  margin-right: 1.042%;
-  height: 250px;
-  border: 1px solid black;
-  padding: 5px;
-  border-radius: 0px 10px 10px 0px;
+  background: black;
 }

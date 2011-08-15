@@ -1,4 +1,4 @@
-#left_side
+#left_side.span-5
   #gravatar
     = gravatar_for (@user, :size=>150)
     - unless hide_edit_links?
@@ -43,7 +43,7 @@
 
   = render 'friendships/friends'
 
-#middle_side
+#middle_side.span-15
   -#form to write a new wall post (foreigners) or status update (profile owner) 
     -#intend to use ajax here 
   - unless current_user?(@user)
@@ -51,7 +51,7 @@
   - else
     Post status
   %br/
-  = form_for @user.posts.build(:user_id => current_user) do |f|
+  = form_for @user.posts.build(:poster_id => current_user.id) do |f|
     = f.hidden_field  :user_id
     = f.text_field :content
     %br/
@@ -89,4 +89,4 @@
   notification and ads will be here
   mobile monday this friday
   saturday mesters follow the link
-  = link_to "saturday mesters", "www.google.com"
+  =  link_to "saturday mesters", "www.google.com"

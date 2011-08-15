@@ -9,9 +9,9 @@ class PostsController < ApplicationController
 
   def create
     @user = User.find(params[:post][:user_id]) #the user on whose wall the post was written 
-    @user.posts.create!(:poster_id => current_user, :content=>
+    @user.posts.create!(:poster_id => current_user.id, :content=>
                        params[:post][:content])
-    redirect_to profile_path(@user)
+    redirect_to profile_path(@user) #redirecting to the user on whose wall content was posted. 
 
   end
 
