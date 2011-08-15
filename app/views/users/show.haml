@@ -1,4 +1,4 @@
-#left_side.span-5
+#left_side.span-5.prepend-top
   #gravatar
     = gravatar_for (@user, :size=>150)
     - unless hide_edit_links?
@@ -40,7 +40,7 @@
 
   = render 'friendships/friends'
 
-#middle_side.span-15
+#middle_side.span-14.prepend-top.append-bottom
   %fieldset
     %legend
       Basic User Info
@@ -101,10 +101,12 @@
       - Spec::ALL_FIELDS.each do |field|
         = render 'specs/field_row', :field_row => field
     - unless hide_edit_links?
+      %br/
       %span.edit_link
         = link_to "edit", edit_spec_path(@user)
   - Faq::FAVOURITES.each do |favourite|
     = render 'faqs/sidebar_box', :sidebar_box => favourite
+    %hr/
 
   - unless hide_edit_links? #preference are not to be shown in settings mode 
     %fieldset
@@ -121,8 +123,10 @@
       %span.edit_link
         = link_to "edit", edit_preference_path(@user)
 
-#right_side
-  notification and ads will be here
+#right_side.span-4.prepend-top.last.append-bottom
+  %hr/
+  Notifications and ads will be here
   mobile monday this friday
   saturday mesters follow the link
-  = link_to "saturday mesters", "www.google.com"
+  = link_to "Saturday MESTers", "www.google.com"
+  %hr/

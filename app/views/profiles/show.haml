@@ -1,4 +1,4 @@
-#left_side.span-5
+#left_side.span-5.prepend-top.append-bottom
   #gravatar
     = gravatar_for (@user, :size=>150)
     - unless hide_edit_links?
@@ -43,7 +43,7 @@
 
   = render 'friendships/friends'
 
-#middle_side.span-15
+#middle_side.span-14.prepend-top.append-bottom
   -#form to write a new wall post (foreigners) or status update (profile owner) 
     -#intend to use ajax here 
   - unless current_user?(@user)
@@ -60,7 +60,7 @@
   -#displays the status updates of the user whose profile is being viewed 
   - unless @status.empty?
     %fieldset
-      %legend
+      %legend.prepend-2
         Status
       %table
         -#= render @posts
@@ -85,8 +85,10 @@
           = render :partial =>'profiles/wall_posts', :collection => @wall_posts
     -#= will_paginate @wall_posts
 
-#right_side
+#right_side.span-4.prepend-1.last.prepend-top.append-bottom.pull-1
+  %hr/
   notification and ads will be here
   mobile monday this friday
   saturday mesters follow the link
-  =  link_to "saturday mesters", "www.google.com"
+  =  link_to "saturday mesters", "#"
+  %hr/

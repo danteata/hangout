@@ -5,5 +5,6 @@
     .faq_answer
       = sanitize @faq[sidebar_box]
       - unless hide_edit_links?
+        %br/
         %span.edit_link
-          = link_to "(edit)", edit_faq_path(@user)
+          = link_to "edit", edit_faq_path(@user)

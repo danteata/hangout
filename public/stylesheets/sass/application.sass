@@ -48,8 +48,11 @@ body
     &:active
       :color green
 
+  .edit_link
+    :float right
+
   .container
-    //:border 6px solid black
+    :border 6px solid black
     :clear both
     :margin auto
     :background white
@@ -158,9 +161,7 @@ body
           :background #15405C
           :color white
           :border 1px solid black
-          
           :padding 10px
-          :margin-bottom 20px
           :border-radius 10px 0px 0px 10px
 
           h1
@@ -172,14 +173,12 @@ body
               img
                 :margin auto
                 :text-align center
+
         #middle_side
           :color white
           :background #15405C
           :width 45%
-          +column(13)
-          //:height 680px
           :border 1px solid black
-          //:margin-left 28%
           :margin-top 0px
           :padding 5px
           +rounded
@@ -188,15 +187,11 @@ body
           :background #15405C
           :color white
           :border 1px solid black
-          //:width 20%
-          +column(4)
           :height 250px
-          //:float left
-
           :border 1px solid black
-          //:margin-left 80%
           :padding 5px
           :border-radius 0px 10px 10px 0px
+    .debug_dump
 
     footer
       :text-align center
