@@ -4,17 +4,22 @@
 
 Heard you've lost your login information.
 %br/
-Well this is it:
+You can use your email with the generated passsword below to signin:
 %br/
 Screen name:
-= @user.name
+= @user.email
 %br/
 Password:
-= @user.encrypted_password
+= @password
 %br/
 Follow the link below to reset your password:
 %br/
-= edit_user_path(@user, :host=>'localhost:3000')
+Note: Please remember to change your password once you are logged feel extra secure.
+%br/
+Sign up link:
+%br/
+
+= signup_url(@user, :host=>'localhost:3000')
 %br/
 %br/
-***The MEST hangout team*** 
+***The MEST community hangout *** 
