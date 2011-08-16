@@ -1,15 +1,16 @@
 #left_side.span-5.prepend-top
-  #gravatar
+  #gravatar.box
     = gravatar_for (@user, :size=>150)
     - unless hide_edit_links?
       %a{:href => "http://gravatar.com/emails", :target=>"_blank"}
         change
+    -#%br/
+  %p.push-1
+    = @spec.full_name
     %br/
-  = @spec.full_name
-  %br/
-  =@spec.occupation
-  %br/
-  %hr/
+    %strong
+      =@spec.occupation
+      %hr/
   = link_to "#{@user.name}\'s info", user_path(@user)
   %br/
   -#= friendship_status(current_user, @user) if !User.is_same?(@user, current_user)

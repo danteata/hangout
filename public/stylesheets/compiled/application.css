@@ -191,7 +191,56 @@ body .container header #white_space #nav_container nav ul li a {
   padding: 0 5px;
   font-weight: bold;
 }
-/* line 196, ../sass/application.sass */
+/* line 122, ../sass/application.sass */
+body .container section {
+  clear: both;
+  background: white;
+  min-height: 350px;
+  margin: auto;
+  margin-bottom: 1px;
+  margin-top: 2px;
+  height: auto;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+/* line 137, ../sass/application.sass */
+body .container section .ladder {
+  background: black;
+  color: white;
+  text-align: center;
+}
+/* line 142, ../sass/application.sass */
+body .container section #success-image {
+  margin-bottom: 0px;
+}
+/* line 144, ../sass/application.sass */
+body .container section #sign_up_button {
+  margin-top: 180px;
+  display: block;
+  text-align: center;
+  width: 190px;
+  color: white;
+  background: #006400;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+/* line 166, ../sass/application.sass */
+body .container section #left_side h1 #gravatar {
+  margin: auto;
+  border: 1px solid black;
+  background: gray;
+}
+/* line 171, ../sass/application.sass */
+body .container section #left_side h1 #gravatar img {
+  margin: auto;
+  text-align: center;
+}
+/* line 194, ../sass/application.sass */
 body .container footer {
   text-align: center;
   color: white;

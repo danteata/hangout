@@ -1,5 +1,5 @@
 #left_side.span-5.prepend-top.append-bottom
-  #gravatar
+  #gravatar.box
     = gravatar_for (@user, :size=>150)
     - unless hide_edit_links?
       %a{:href => "http://gravatar.com/emails", :target=>"_blank"}

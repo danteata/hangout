@@ -1,3 +1,20 @@
+-#%img#pc-man{:src => "success.jpg"}
+= image_tag("success.jpg", :alt=> "success pics", 
+  :id => "success-img", :class=>"push-1")
 - unless signed_in? 
-  = link_to("Sign Up", signup_path,:class=>"round center append-5",:id=>"sign_up_button")
+  = link_to("Sign Up", signup_path,:id=>"sign_up_button", :class => "push-3")
+-#%br/
+#ladder-1.ladder.push-4.span-5.clear
+  Success
+%br/
+#ladder-2.ladder.push-7.span-5.clear
+  Passion
+%br/
+#ladder-3.ladder.push-10.span-5.clear
+  Standards
+#ladder-4.ladder.push-13.span-5.clear
+  Stamina
+#ladder-5.ladder.push-16.span-5.first.clear
+  HardWork
+
 

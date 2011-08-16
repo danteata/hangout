@@ -1,8 +1,9 @@
-= will_paginate
-%fieldset
-  %legend
-    Members
-  %table
-    = render @users #rails automatically iterates via @users and renders _user.html.erb partial 
+.pagination.push-6.span-12
+  = will_paginate
+  %fieldset
+    %legend
+      Members
+    %table.box
+      = render @users #rails automatically iterates via @users and renders _user.html.erb partial 
 
-=will_paginate
+  = will_paginate
