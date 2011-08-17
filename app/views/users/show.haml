@@ -1,4 +1,4 @@
-#left_side.span-5.prepend-top
+#left_side.span-5.prepend-top.border
   #gravatar.box
     = gravatar_for (@user, :size=>150)
     - unless hide_edit_links?
@@ -41,7 +41,7 @@
 
   = render 'friendships/friends' 
 
-#middle_side.span-14.prepend-top.append-bottom
+#middle_side.span-14.prepend-top.append-bottom.border
   %fieldset
     %legend
       Basic User Info

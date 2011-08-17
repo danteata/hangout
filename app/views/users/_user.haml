@@ -2,7 +2,8 @@
 
   %td
     = link_to (gravatar_for user, :size => 80), profile_path(user)
-    %br/
+    -#%br/
+  %td
     = link_to user.name, profile_path(user)
 
   %td

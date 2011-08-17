@@ -51,11 +51,13 @@
   - else
     Post status
   %br/
-  = form_for @user.posts.build(:poster_id => current_user.id) do |f|
-    = f.hidden_field  :user_id
-    = f.text_field :content
-    %br/
-    = f.submit "Post"
+  #post-form
+    = form_for @user.posts.build(:poster_id => current_user.id) do |f|
+      = f.hidden_field  :user_id
+      = f.text_field :content
+      %br/
+      = f.submit "publish"
+
 
   -#displays the status updates of the user whose profile is being viewed 
   - unless @status.empty?
