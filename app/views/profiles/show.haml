@@ -1,4 +1,4 @@
-#left_side.span-5.prepend-top.append-bottom
+#left_side.span-5.prepend-top.append-bottom.border
   #gravatar.box
     = gravatar_for (@user, :size=>150)
     - unless hide_edit_links?
@@ -64,7 +64,7 @@
     %fieldset
       %legend.prepend-2
         Status
-      %table
+      %table#post-table
         -#= render @posts
         = render @posts
     = will_paginate @posts
@@ -87,7 +87,7 @@
           = render :partial =>'profiles/wall_posts', :collection => @wall_posts
     -#= will_paginate @wall_posts
 
-#right_side.span-4.prepend-1.last.prepend-top.append-bottom.pull-1
+#right_side.span-4.prepend-1.last.prepend-top.append-bottom.pull-1.border
   %hr/
   notification and ads will be here
   mobile monday this friday
