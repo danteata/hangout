@@ -65,7 +65,7 @@ class ProfilesController < ApplicationController
     #a user's profile can be viewed if he has no restriction(all ends with ll) on it or otherwise if requester is a friend.
     #@preference.profile_view.end_with? "ll" || @user.friends.include?(current_user)
     #@user.friends.include?(current_user) || @preference.profile_view.end_with? ("ll")
-    @user.friends.include?(current_user) || @preference.profile_view == "All" 
+    @user.friends.include?(current_user) || @preference.profile_view == "All" || @preference.profile_view == "all" 
   end
 
 end
