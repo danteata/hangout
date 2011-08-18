@@ -30,7 +30,9 @@
   -unless @faq.bio.blank?
     #bio
       %h2
-        My Bio
+        %strong
+          My Bio
+        %hr/
       = sanitize @faq.bio
       -#%hr/
       - unless hide_edit_links?
@@ -40,8 +42,8 @@
 
   -#mutual friends are displayed only when in profile view mode 
   -#- if hide_edit_links? and !current_user?(@user)
-  - unless current_user?(@user) or @user.friends.empty? or current_user.friends.empty?
-    = render 'friendships/mutual_friends'
+  -#- unless current_user?(@user) or @user.friends.empty? or current_user.friends.empty?
+    -#= render 'friendships/mutual_friends'
   %hr/
 
   = render 'friendships/friends'
