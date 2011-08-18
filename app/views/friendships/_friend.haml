@@ -1,10 +1,10 @@
-%tr
-  %td
-    = link_to (gravatar_for friend, :side => 30), profile_path(friend)
-    %br/
-    = link_to friend.name, profile_path(friend)
-  %td
-    - unless hide_edit_links?
-      = link_to "remove", {:controller => "friendships",
-        :action => "delete", :id => friend.id},
-          :confirm => "Delete friendship with #{friend.name}?"
+#friend.span-1
+  = link_to (gravatar_for friend, :size => 35), profile_path(friend)
+  -#%br/
+  -#= link_to friend.name, profile_path(friend)
+
+  -#= link_to friend.name, profile_path(friend)
+  -#- unless hide_edit_links?
+    -#= link_to "remove", {:controller => "friendships",
+      -#:action => "delete", :id => friend.id},
+        -#:confirm => "Delete friendship with #{friend.name}?"

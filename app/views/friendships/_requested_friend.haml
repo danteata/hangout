@@ -1,6 +1,6 @@
 %tr
   %td
-    = gravatar_for requested_friend, :side => 30
+    = gravatar_for requested_friend, :size => 30
     = link_to requested_friend.name, profile_path(requested_friend)
   %td
     = link_to "Accept", {:controller => "friendships",

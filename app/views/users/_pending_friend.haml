@@ -1,6 +1,6 @@
 %tr
   %td
-    = gravatar_for pending_friend, :side => 30
+    = gravatar_for pending_friend, :size => 30
     = link_to pending_friend.name, profile_path(pending_friend)
   %td
     = link_to "Cancel", {:controller => "friendship",

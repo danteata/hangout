@@ -2,15 +2,15 @@
   %td
     %span
       -if current_user?(@user)
-        = link_to gravatar_for(wall_post.poster, :size =>50), profile_path(wall_post.poster)
-        = link_to wall_post.poster.name, profile_path(wall_post.poster)
+        = link_to gravatar_for(friend_feed.poster, :size =>50), profile_path(friend_feed.poster)
+        = link_to friend_feed.poster.name, profile_path(friend_feed.poster)
       -#- else if post.poster != current_user
         -#Posted on ur wall.
     %span
       %br/
-      = wall_post.content
+      = friend_feed.content
       %br/
     %span
       Posted
-      = time_ago_in_words wall_post.created_at
+      = time_ago_in_words friend_feed.created_at
       ago.

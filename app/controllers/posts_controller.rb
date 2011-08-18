@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def create
     @user = User.find(params[:post][:user_id]) #the user on whose wall the post was written 
-    @user.posts.create!(:poster_id => current_user.id, :content=>
+    @post = @user.posts.create!(:poster_id => current_user.id, :content=>
                        params[:post][:content])
     respond_to do |format|
       format.html {redirect_to profile_path(@user)}
@@ -20,7 +20,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    #@user = Post.find_by_user_id
+    @post = Post.find(params[:id])
+    @user = User.find(@post.poster_id)
+    @post.destroy
+    respond_to do |format|
+      format.html {redirect_to profile_path(@user)}
+      format.js
+    end
 
   end
 

@@ -18,12 +18,12 @@ class ProfilesController < ApplicationController
 
     #gets all of a user's friends and retrieves their ids.
     #profile_friends_ids = @user.friends.map {|friend| friend.id}
-    profile_friends_ids = @user.friends.map(&:id)
+    profile_friends_ids = @user.friends.map(&:id).push(@user.id).join(", ")
     # a status feed is posted by a user unto his own wall.and only friends feeds are retrieved.
     @status = Post.where "poster_id = user_id and poster_id = ?", @user
 
     @friend_feeds = Post.where ("poster_id = user_id AND poster_id IN (#{profile_friends_ids})")
-    @wall_posts = Post.where "user_id = #{@user.id} AND poster_id IN (#{profile_friends_ids})"
+    @wall_posts = Post.where "user_id = #{@user.id} AND poster_id IN (#{profile_friends_ids})" #wall posts now includes user's own posts 
 
     #visitors of a profile see all posts written by profile owner's friends plus status updates.
     @posts = @status.nil? ? [] : @status.paginate(:page=>params[:page])

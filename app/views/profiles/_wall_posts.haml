@@ -1,9 +1,9 @@
 %tr
   %td
     %span
-      -if current_user?(@user)
-        = link_to gravatar_for(wall_post.poster, :size =>50), profile_path(wall_post.poster)
-        = link_to wall_post.poster.name, profile_path(wall_post.poster)
+      -#-if current_user?(@user)
+      = link_to gravatar_for(wall_post.poster, :size =>50), profile_path(wall_post.poster)
+      = link_to wall_post.poster.name, profile_path(wall_post.poster)
       -#- else if post.poster != current_user
         -#Posted on ur wall.
     %span

@@ -6,8 +6,11 @@
       = title #render the title from the title helper 
     = csrf_meta_tag
     = render "layouts/stylesheets"
-    = javascript_include_tag :defaults
-    = javascript_include_tag "prototype", :juggernaut
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/lib/jquery/1.4.2/jquery.min.js"
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/lib/jqueryui/1.7.2/jquery-ui.min.js"
+    = javascript_include_tag "rails.js" #the rails.js file in rails-jquery folder 
+    = javascript_include_tag :juggernaut
+    -#= javascript_include_tag "prototype", :defaults
   %body
     .container.showgrid.prepend-top
       = render "layouts/nav"

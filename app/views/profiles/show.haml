@@ -2,12 +2,14 @@
   #gravatar.box
     = gravatar_for @user, :size=>150
     - unless hide_edit_links?
+      %br/
       %a{:href => "http://gravatar.com/emails", :target=>"_blank"}
         change
     %br/
-  = @spec.full_name
-  %br/
-  =@spec.occupation
+  #details.box
+    = @spec.full_name
+    %br/
+    =@spec.occupation
   %br/
   %hr/
   = link_to "#{@user.name}\'s info", user_path(@user)
@@ -17,7 +19,7 @@
   -#= friendship_status(current_user, @user) if !User.is_same?(@user, current_user)
   = friendship_status(current_user, @user) unless current_user?(@user)
   %br/
-  = link_to "send user a mail", :controller =>"emails",
+  = link_to "Send email", :controller =>"emails",
     :action =>"correspond", :id =>@user unless current_user?(@user)
   %br/
 
@@ -37,7 +39,8 @@
 
 
   -#mutual friends are displayed only when in profile view mode 
-  - if hide_edit_links? and !current_user?(@user)
+  -#- if hide_edit_links? and !current_user?(@user)
+  - unless current_user?(@user) or @user.friends.empty? or current_user.friends.empty?
     = render 'friendships/mutual_friends'
   %hr/
 
@@ -60,22 +63,23 @@
 
 
   -#displays the status updates of the user whose profile is being viewed 
-  - unless @status.empty?
-    %fieldset
-      %legend.prepend-2
-        Status
-      %table#post-table
+  -#- unless @status.empty?
+    -#%fieldset
+      -#%legend.prepend-2
+        -#Status
+      -#%table#posts-table
+        -#-#= render @posts
         -#= render @posts
-        = render @posts
-    = will_paginate @posts
+    -#= will_paginate @posts
 
   -#friend feeds are only displayed on current user own profile and when there are feeds available 
   - unless !current_user?(@user) or @friend_feeds.empty?
     %fieldset
       %legend
         Friend Feeds
-        %table
-          = render :partial =>'profiles/wall_posts', :collection => @wall_posts
+      %table
+        -@friend_feeds.each do |friend_feed|
+          = render :partial =>'profiles/friend_feeds', :locals => {:friend_feed => friend_feed}
     -#= will_paginate @friend_feeds
 
   -#posts by friends on user whose profile is being viewed. 
@@ -83,8 +87,10 @@
     %fieldset
       %legend
         Wall Posts
-        %table
-          = render :partial =>'profiles/wall_posts', :collection => @wall_posts
+      %table
+        - @wall_posts.each do |wall_post|
+          -#= render :partial =>'profiles/wall_posts', :collection => @wall_posts
+          = render :partial =>'profiles/wall_posts', :locals => {:wall_post=>wall_post}
     -#= will_paginate @wall_posts
 
 #right_side.span-4.prepend-1.last.prepend-top.append-bottom.pull-1.border

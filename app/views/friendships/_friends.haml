@@ -1,20 +1,22 @@
-%table
-  %tr
-    %th
-      = link_to (pluralize(@friends.count,"friend"), friends_user_path(@user))
-        
+#friends-count
+  = link_to (pluralize(@friends.count,"friend"), friends_user_path(@user))
+  %hr/
+#friends
   - @friends.each do |friend|
     = render "friendships/friend", :friend => friend
-  -unless @requested_friends.empty? or hide_edit_links?
-    %tr
-      %th
-        = pluralize(@requested_friends.count, "requesting friend")
+-unless @requested_friends.empty? or hide_edit_links?
+
+  #requested-friends-count
+    = pluralize(@requested_friends.count, "requesting friend")
+    %hr/
+  #requested-friends
     - @requested_friends.each do |requested_friend|
       = render "friendships/requested_friend", :requested_friend => requested_friend
 
-  -unless @pending_friends.empty? or hide_edit_links?
-    %tr
-      %th
-        = pluralize(@pending_friends.count, "requested friend")
+-unless @pending_friends.empty? or hide_edit_links?
+  #pending-friends-count
+    = pluralize(@pending_friends.count, "requested friend")
+    %hr/
+  #pending-friends
     - @pending_friends.each do |pending_friend|
       = render "friendships/pending_friend", :pending_friend => pending_friend
