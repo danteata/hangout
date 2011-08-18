@@ -3,6 +3,8 @@ class PagesController < ApplicationController
     @title = "Home"
     if current_user
       redirect_to users_path
+    else
+      redirect_to signin_path
     end
   end
 

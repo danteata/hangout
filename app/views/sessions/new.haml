@@ -1,4 +1,8 @@
-%fieldset
+= image_tag("success.jpg", :alt=> "success pics", 
+  :id => "success-img", :class=>"push-1 span-9")
+-#- unless signed_in? 
+  -#= link_to("Sign Up", signup_path,:id=>"sign_up_button", :class => "push-3")
+%fieldset.push-5.span-5.last
   %legend
     Sign in
 
@@ -20,6 +24,9 @@
       Forgot your login information?
       = link_to "Reset Password!", :controller => "emails",
                               :action => "remind"
-    %p
-      Not a member?
-      = link_to "Register now!" , signup_path
+    -#%p
+      -#Not a member?
+      -#= link_to "Register now!" , signup_path
+
+- unless signed_in? 
+  = link_to("Sign Up", signup_path,:id=>"sign_up_button", :class => "pull-5 prepend-top")
