@@ -15,6 +15,7 @@
 
 -unless @pending_friends.empty? or hide_edit_links?
   #pending-friends-count
+    %hr/
     = pluralize(@pending_friends.count, "requested friend")
     %hr/
   #pending-friends
