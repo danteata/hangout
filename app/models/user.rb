@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :posts, :dependent => :destroy
   has_many :microposts, :dependent => :destroy
 
+  has_many :comments
+
   has_one :spec, :dependent => :destroy
 
   has_one :faq, :dependent => :destroy

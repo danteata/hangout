@@ -56,11 +56,12 @@
           Email:
         %td
           = @user.email
-      %tr
-        %td.label
-          Password:
-        %td
-          ******
+      - if current_user?(@user)
+        %tr
+          %td.label
+            Password:
+          %td
+            ******
     - unless hide_edit_links?
       %span.edit_link
         = link_to "edit", edit_user_path(@user)
