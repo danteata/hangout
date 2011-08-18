@@ -1,5 +1,6 @@
-%h1
-  Sign up
+%fieldset.push-9
+  %legend
+    Sign up
 
-= form_for(@user) do |f|
-  = render "new_or_edit_form", :f => f #passing the form as a local variable accessible in the partial
+  = form_for(@user) do |f|
+    = render "new_or_edit_form", :f => f #passing the form as a local variable accessible in the partial

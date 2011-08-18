@@ -57,7 +57,8 @@
   #post-form
     = form_for @user.posts.build(:poster_id => current_user.id) do |f|
       = f.hidden_field  :user_id
-      = f.text_field :content
+      = f.text_area :content,:id=>"comment-area", :rows => 3, :cols => 5, :maxlength => 140
+      -#= f.text_field :content
       %br/
       = f.submit "publish"
 
