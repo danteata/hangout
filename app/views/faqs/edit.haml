@@ -1,9 +1,7 @@
-%h1
-  Frequently asked questions
-%p
-  Please answer some basic questions about yourself
+-#%p
+  -#Please answer some basic questions about yourself
 = form_for @faq do |form|
-  %fieldset
+  %fieldset.push-9
     %legend
       Update Your FAQ
     - Faq::QUESTIONS.each do |question|

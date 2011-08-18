@@ -1,9 +1,5 @@
-%h1 Edit Specs
-%h1
-  =@user.name
-
 = form_for @spec do |f|
-  %fieldset
+  %fieldset.push-9
     %legend 
       = @title
     = render 'shared/error_messages', :object =>f.object
@@ -26,9 +22,9 @@
       = f.label :birthday
       %br
       = date_select :spec, :birthday,
-                    :start_year => 1930,
-                    :end_year => Time.now.year,
-                    :order => [:month, :day, :year]
+        :start_year => 1930,
+          :end_year => Time.now.year,
+            :order => [:month, :day, :year]
     .field
       = f.label :occupation
       %br
