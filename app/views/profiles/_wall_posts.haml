@@ -14,3 +14,5 @@
       Posted
       = time_ago_in_words wall_post.created_at
       ago.
+      = link_to "delete", post_path(wall_post), :method => :delete, 
+        :class => "delete", :remote => true if current_user?(wall_post.poster)

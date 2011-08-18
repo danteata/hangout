@@ -80,7 +80,7 @@
       %table
         -@friend_feeds.each do |friend_feed|
           = render :partial =>'profiles/friend_feeds', :locals => {:friend_feed => friend_feed}
-    -#= will_paginate @friend_feeds
+    = will_paginate @friend_feeds
 
   -#posts by friends on user whose profile is being viewed. 
   - unless @wall_posts.empty?
@@ -91,7 +91,7 @@
         - @wall_posts.each do |wall_post|
           -#= render :partial =>'profiles/wall_posts', :collection => @wall_posts
           = render :partial =>'profiles/wall_posts', :locals => {:wall_post=>wall_post}
-    -#= will_paginate @wall_posts
+    = will_paginate @wall_posts
 
 #right_side.span-4.prepend-1.last.prepend-top.append-bottom.pull-1.border
   %hr/

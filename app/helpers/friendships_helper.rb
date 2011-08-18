@@ -37,12 +37,12 @@ module FriendshipsHelper
     mutual = []
     user.friends.each do |friend|
       #gathering mutual friends
-      if current_user.friends.any? and current_user.friends.include?(friend)
+      if current_user.friends.any? and current_user.friends.include?(friend) and !current_user?(user)
       #unless current_user.friends.empty? or !current_user.friends.include?(friend) 
         mutual << friend
       end
 
-      return mutual
+      #return mutual
     end
   end
 
