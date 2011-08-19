@@ -35,8 +35,22 @@ SampleApplication::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+   config.action_mailer.raise_delivery_errors = true
 
+  config.action_mailer.perform_deliveries = true
+  #default host for mailer routes.
+ #config.action_mailer.default_url_options[:host] = "localhost:3000"
+  #configurations for action mailer
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'hollow-rain-939.heroku.com',
+    :user_name            => 'danteata',
+    :password             => '12051987',
+    :authentication       => :plain,
+    :enable_starttls_auto => true
+  }
   # Enable threaded mode
   # config.threadsafe!
 
