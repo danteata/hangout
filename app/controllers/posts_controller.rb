@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
 
+  before_filter :authenticate
+
+  #respond_to :html, :js
+
   def index
 
   end
@@ -23,10 +27,13 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = User.find(@post.poster_id)
     @post.destroy
-    respond_to do |format|
-      format.html {redirect_to profile_path(@user)}
-      format.js
-    end
+    redirect_to profile_path(@user)
+    #respond_with profile_path(@user)
+
+    #respond_to do |format|
+      #format.html {redirect_to profile_path(@user)}
+      #format.js
+    #end
 
   end
 

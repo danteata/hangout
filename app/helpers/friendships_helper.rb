@@ -32,29 +32,15 @@ module FriendshipsHelper
     end
   end
 
-  #returns an array of all mutual friends of current user and user whose profile he is viewing
-  def mutual_friends(user)
-    mutual = []
-    user.friends.each do |friend|
-      #gathering mutual friends
-      if current_user.friends.any? and current_user.friends.include?(friend) and !current_user?(user)
-      #unless current_user.friends.empty? or !current_user.friends.include?(friend) 
-        mutual << friend
-      end
 
-      #return mutual
+  #returns a mutual friends list or an empty array if there are none 
+  def mutual_friends user
+    unless current_user.friends.empty? or user.friends.empty?
+      #returns the intersection of the 2 arrays which represents mutual friends
+      user.friends & current_user.friends
+    else
+      []
     end
   end
 
-  #def mutual_friends(user, friend)
-  #friend.friends.each do |friend| #loop through friends list of friends and add all common friends. 
-  #mutual = []
-  ##gathering mutual friends
-  #unless user.friends.empty? or !user.friends.include?(friend) 
-  #mutual << friend
-  #end
-
-  #return mutual
-  #end
-  #end
 end

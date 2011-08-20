@@ -41,10 +41,9 @@
 
 
   -#mutual friends are displayed only when in profile view mode 
-  -#- if hide_edit_links? and !current_user?(@user)
-  -#- unless current_user?(@user) or @user.friends.empty? or current_user.friends.empty?
-    -#= render 'friendships/mutual_friends'
-  %hr/
+  - if hide_edit_links? and !current_user?(@user)
+    = render 'friendships/mutual_friends'
+  -#%br/
 
   = render 'friendships/friends'
 
@@ -57,7 +56,7 @@
     Post status
   %br/
   #post-form
-    = form_for @user.posts.build(:poster_id => current_user.id) do |f|
+    = form_for @user.posts.build(:poster_id => current_user.id), :remote => true do |f|
       = f.hidden_field  :user_id
       -#= f.text_area :content,:id=>"comment-area", :rows => 3, :cols => 5, :maxlength => 140
       = f.text_field :content
@@ -90,7 +89,7 @@
     %fieldset
       %legend
         Wall Posts
-      %table
+      %table#post-table
         - @wall_posts.each do |wall_post|
           -#= render :partial =>'profiles/wall_posts', :collection => @wall_posts
           = render :partial =>'profiles/wall_posts', :locals => {:wall_post=>wall_post}

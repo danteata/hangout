@@ -6,11 +6,11 @@
       = title #render the title from the title helper 
     = csrf_meta_tag
     = render "layouts/stylesheets"
-    = javascript_include_tag "http://ajax.googleapis.com/ajax/lib/jquery/1.4.2/jquery.min.js"
-    = javascript_include_tag "http://ajax.googleapis.com/ajax/lib/jqueryui/1.7.2/jquery-ui.min.js"
+    = javascript_include_tag "jquery/jquery-1.6.2.js"
+    = javascript_include_tag "jquery-ui-1.7.2.custom.min.js"
     = javascript_include_tag "rails.js" #the rails.js file in rails-jquery folder 
     = javascript_include_tag :juggernaut
-    -#= javascript_include_tag "prototype", :defaults
+    = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
   %body
     .container.showgrid.prepend-top
       = render "layouts/nav"

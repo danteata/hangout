@@ -11,12 +11,12 @@ To reply to this mail, go to:
 %br/
 - @body_session = @message.body
 - @title_session = @message.subject
--#= form_tag(correspond_email_url(@sender, :host=>"localhost:3000"), :method =>"get") do
-  -#-#= hidden_field_tag "original", @message.body
-  -#-#= hidden_field_tag "original_subject", @message.subject
-  -#-#faked to allow posting form from external source 
-  -#-#= hidden_field_tag "authenticity_token", "86b786b74406048a7f629bd560eab8de771a74c620be"
-  -#= submit_tag "Reply"
+= form_tag(correspond_email_url(@sender, :host=>"localhost:3000"), :method =>"post") do
+  -#= hidden_field_tag "original", @message.body
+  -#= hidden_field_tag "original_subject", @message.subject
+  -#faked to allow posting form from external source 
+  -#= hidden_field_tag "authenticity_token", "86b786b74406048a7f629bd560eab8de771a74c620be"
+  = submit_tag "Reply"
 %br/
 
 = link_to "reply link", correspond_email_url(@sender, :host=> "localhost:3000")

@@ -17,9 +17,7 @@ class ProfilesController < ApplicationController
     @network = @user.network ||= Network.new
 
     #gets all of a user's friends and retrieves their ids.
-    #profile_friends_ids = @user.friends.map {|friend| friend.id}
     profile_friends_ids = @user.friends.map(&:id).join(", ")
-    #profile_friends_ids =@user.friends.empty? ? [] : @user.friends.map(&:id).join(", ")
     wall_posters_ids = @user.friends.map(&:id).push(@user.id).join(", ")
     # a status feed is posted by a user unto his own wall.and only friends feeds are retrieved.
     @status = Post.where "poster_id = user_id and poster_id = ?", @user
@@ -31,23 +29,12 @@ class ProfilesController < ApplicationController
     @wall_posts =@wall_posts_raw.nil? ? [] : @wall_posts_raw.paginate(:page=>params[:page], :per_page => 10)
     #visitors of a profile see all posts written by profile owner's friends plus status updates.
     @posts = @status.nil? ? [] : @status.paginate(:page=>params[:page], :per_page => 10)
-    #@posts = @user.posts.paginate(:page => params[:page])
-    #@microposts = @user.microposts.paginate(:page => params[:page])
-    #render "users/show" #profile view and users view are similar (just without edit links) 
   end
 
   def edit
 
   end
 
-  #def profile_feed
-  ##gets all of a user's friends and retrieves their ids.
-  #profile_friends_ids = @user.friends.map {|friend| friend.id}
-  ## a status feed is posted by a user unto his own wall.and only friends feeds are retrieved.
-  #feed = Micropost.where(:poster_id=> profile_friends_id.push(@user.id) AND
-  #:poster_id =?, :user_id)
-  #Micropost.where("poster_id IN #{profile_friends_id.push(@user.id)} AND poster_id =user_id")
-  #end
 
   private
 
@@ -67,8 +54,6 @@ class ProfilesController < ApplicationController
     @user = user
     @preference = @user.preference ||= Preference.new
     #a user's profile can be viewed if he has no restriction(all ends with ll) on it or otherwise if requester is a friend.
-    #@preference.profile_view.end_with? "ll" || @user.friends.include?(current_user)
-    #@user.friends.include?(current_user) || @preference.profile_view.end_with? ("ll")
     @user.friends.include?(current_user) || @preference.profile_view == "All" || @preference.profile_view == "all" 
   end
 
