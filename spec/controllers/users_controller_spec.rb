@@ -298,6 +298,7 @@ describe UsersController do
     before(:each) do
       @user = Factory(:user)
     end
+  end
 
     describe "as a non-signed-in user" do
 

@@ -1,7 +1,5 @@
 <%#$("post-table").update("<%= escape_javascript(render @posts) %>")%>
 <%#$("post-table").html("<%= escape_javascript(render 'profiles/wall_posts', %>
                                     <%#:locals=>{:wall_post=>wall_post}) %>")%>
-$("body").html("wooow")
-$('#post_submit').bind('ajax:success', function(){
-    alert("Success!");
-    });
+
+$("#post-table").append("<%= escape_javascript render(@post) %>");

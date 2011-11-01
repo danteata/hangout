@@ -6,6 +6,8 @@ gem 'formtastic', '~> 1.2.0'
 gem 'will_paginate'
 gem 'sqlite3'
 gem 'haml', '3.1.2'
+gem 'sass'
+gem 'jquery-rails'
 #gem "juggernaut"
 #gem 'haml-rails'
 gem 'compass'

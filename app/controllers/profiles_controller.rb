@@ -22,7 +22,8 @@ class ProfilesController < ApplicationController
     # a status feed is posted by a user unto his own wall.and only friends feeds are retrieved.
     @status = Post.where "poster_id = user_id and poster_id = ?", @user
 
-    @friend_feeds_raw = profile_friends_ids.blank? ? [] : Post.where ("poster_id = user_id AND poster_id IN (#{profile_friends_ids})")
+    @friend_feeds_raw =if profile_friends_ids.blank? then [] else Post.where ("poster_id = user_id AND poster_id IN (#{profile_friends_ids})") end
+    #@friend_feeds_raw = profile_friends_ids.blank? ? [] : Post.where ("poster_id = user_id AND poster_id IN (#{profile_friends_ids})")
     @wall_posts_raw = Post.where "user_id = #{@user.id} AND poster_id IN (#{wall_posters_ids})" #wall posts now includes user's own posts 
 
     @friend_feeds =@friend_feeds_raw.nil? ? [] : @friend_feeds_raw.paginate(:page=>params[:page], :per_page => 10)
